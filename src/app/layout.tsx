@@ -3,6 +3,9 @@ import "../styles/globals.css";
 import { Inter } from "next/font/google";
 import Loading from "./loading";
 import SideBar from "@/layout/home/SideBar";
+import MidSection from "@/components/MidSection";
+import { Providers } from "./providers";
+import RightBody from "@/layout/home/RightBody";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,14 +28,22 @@ export default function RootLayout({
           position: "relative",
           display: "flex",
           height: "100vh",
+          transition: "all .8s ease",
         }}
       >
-        <Suspense fallback={<Loading />}>
-          <SideBar />
-        </Suspense>
-        <Suspense fallback={<Loading />}>
-          <section className="flex-1">{children}</section>
-        </Suspense>
+        <Providers>
+          <Suspense fallback={<Loading />}>
+            <SideBar />
+          </Suspense>
+          <RightBody>
+            <Suspense fallback={<Loading />}>
+              <MidSection />
+            </Suspense>
+            <Suspense fallback={<Loading />}>
+              <section className="w-full">{children}</section>
+            </Suspense>
+          </RightBody>
+        </Providers>
       </body>
     </html>
   );

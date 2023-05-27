@@ -1,4 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { SideBarProps } from "../../../types/sideBar";
+import { FC, useState } from "react";
+import { useBase } from "@/contexts/BaseProvider";
 
 const menuList = [
   {
@@ -23,11 +28,19 @@ const menuList = [
   },
 ];
 
-const SideBar = () => {
+const SideBar: FC<SideBarProps> = ({}) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { setIsMidOpen, isMidOpen } = useBase();
+
+  const openMidSection = () => {
+    setIsOpen(!isOpen);
+    setIsMidOpen(!isOpen || !isMidOpen);
+  };
+
   return (
-    <div className="w-[300px] bg-[#fff]">
+    <div className="min-w-[280px] w-[300px] bg-[#fff]">
       <div>
-        <div className="aw-full h-[200px] bg-[#4d4d4d]"></div>
+        <div className="w-full h-[160px] bg-[#4d4d4d]"></div>
         <div className="mt-[-75px]">
           <div className="h-[200px] w-full flex items-center justify-center">
             <div className="w-[80%] h-full flex items-center justify-center">
@@ -46,7 +59,7 @@ const SideBar = () => {
         </div>
         <div className="mx-auto my-0 text-center">
           <hgroup className="text-title text-primary">
-            <a href="/">莫西博客</a>
+            <a href="/">莫西</a>
           </hgroup>
           <p className="text-secondary text-ellipsis my-[2rem] text-lg">
             “踏踏实实做事”
@@ -64,11 +77,17 @@ const SideBar = () => {
         </nav>
 
         <nav className="text-sm my-[2rem] flex justify-center gap-2 text-secondary">
-          <a className="hover:text-hoverPrimary" href="/recommend">
+          <a
+            className="cursor-pointer hover:text-hoverPrimary"
+            onClick={openMidSection}
+          >
             推荐
           </a>
           /
-          <a className="hover:text-hoverPrimary" href="/search">
+          <a
+            className="cursor-pointer hover:text-hoverPrimary"
+            onClick={openMidSection}
+          >
             搜索
           </a>
           {">>"}

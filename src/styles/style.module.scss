@@ -1,0 +1,21 @@
+.buttonActive {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 0;
+        height: 40px;
+        background-color: #b9cbe788;
+        transition: .1s all ease-in;
+        border-radius: 4px;
+    }
+
+    &:active::before {
+        left: 0;
+        width: 100px;
+        height: 40px;
+    }
+}

@@ -4,4 +4,11 @@
 
 :root, body {
   background-color: #eaeaea;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+* {
+  font-family: fantasy;
 }

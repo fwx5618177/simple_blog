@@ -1,5 +1,6 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { ArticlePaginationProps } from "../../../types/article";
+import styles from "@/styles/style.module.scss";
 
 const ArticlePagination: FC<ArticlePaginationProps> = ({
   currentPage,
@@ -57,9 +58,9 @@ const ArticlePagination: FC<ArticlePaginationProps> = ({
   return (
     <nav className="flex items-center justify-center mt-4">
       <button
-        className={`px-4 py-2 ml-2 bg-blue-500 rounded-md text-default ${
+        className={`w-[100px] h-[40px] ml-2 bg-blue-500 rounded-md text-default ${
           currentPage <= 1 ? "cursor-not-allowed" : "cursor-pointer"
-        }`}
+        } ${styles.buttonActive}`}
         disabled={currentPage === 1}
         onClick={() => {
           if (currentPage > 1) onPrevPage(currentPage - 1);
@@ -72,9 +73,9 @@ const ArticlePagination: FC<ArticlePaginationProps> = ({
       {renderPagination()}
 
       <button
-        className={`px-4 py-2 ml-2 bg-blue-500 rounded-md text-default ${
+        className={`w-[100px] h-[40px] ml-2 bg-blue-500 rounded-md text-default ${
           currentPage >= totalPages ? "cursor-not-allowed" : "cursor-pointer"
-        }`}
+        } ${styles.buttonActive}`}
         disabled={currentPage === totalPages}
         onClick={() => {
           if (currentPage < totalPages) onNextPage(currentPage + 1);
