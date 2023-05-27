@@ -19,3 +19,23 @@
         height: 40px;
     }
 }
+
+.searchInput {
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 1.5px;
+        background-color: #b9cbe788;
+        transition: all .6s ease-in-out;
+    }
+
+    &:focus::after,
+    &:focus-within::after {
+        background-color: #fff;
+    }
+}
