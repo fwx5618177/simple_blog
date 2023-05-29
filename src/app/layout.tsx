@@ -40,13 +40,7 @@ export default function RootLayout({
               <MidSection />
             </Suspense>
             <Suspense fallback={<Loading />}>
-              <section
-                className="relative p-5 h-[100vh]"
-                style={{
-                  width: "calc(100vw - 300px)",
-                  left: "300px",
-                }}
-              >
+              <section className="relative p-5 h-[100vh] w-full">
                 {children}
               </section>
             </Suspense>

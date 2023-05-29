@@ -31,7 +31,7 @@ const SideBar: FC<SideBarProps> = ({}) => {
   };
 
   return (
-    <div className="fixed h-full shadow-md min-w-[280px] w-[300px] bg-[#fff]">
+    <div className="fixed h-full shadow-md min-w-[280px] w-[300px] bg-[#fff] z-40">
       <div className="text-base">
         <div className="w-full h-[160px] bg-[#4d4d4d]"></div>
         <div className="mt-[-75px]">

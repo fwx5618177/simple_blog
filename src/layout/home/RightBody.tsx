@@ -10,9 +10,13 @@ const RightBody: FC<{
 
   return (
     <div
-      className={`relative flex flex-1 ${
+      className={`relative flex px-2 ${
         isMidOpen ? ` ${RightBodyBgStyle?.blue?.bg}` : ""
       }`}
+      style={{
+        width: "calc(100vw - 300px)",
+        left: "300px",
+      }}
     >
       {children}
     </div>
