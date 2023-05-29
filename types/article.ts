@@ -13,6 +13,7 @@ export type ArticlePaginationProps = {
 export type ArticleListDataArticles = {
   title: string;
   time: string | dayjs.Dayjs;
+  type?: string;
   tags?: ArticleListDataTags[];
 };
 

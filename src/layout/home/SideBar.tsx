@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SideBarProps } from "../../../types/sideBar";
 import { FC, useState } from "react";
 import { useBase } from "@/contexts/BaseProvider";
+import { FaGithubSquare, FaEnvelope } from "react-icons/fa";
 
 const menuList = [
   {
@@ -11,16 +12,8 @@ const menuList = [
     path: "/",
   },
   {
-    name: "归档",
-    path: "/archive",
-  },
-  {
-    name: "分类",
-    path: "/category",
-  },
-  {
-    name: "标签",
-    path: "/tag",
+    name: "目录",
+    path: "/list",
   },
   {
     name: "关于",
@@ -38,8 +31,8 @@ const SideBar: FC<SideBarProps> = ({}) => {
   };
 
   return (
-    <div className="min-w-[280px] w-[300px] bg-[#fff]">
-      <div>
+    <div className="fixed h-full shadow-md min-w-[280px] w-[300px] bg-[#fff]">
+      <div className="text-base">
         <div className="w-full h-[160px] bg-[#4d4d4d]"></div>
         <div className="mt-[-75px]">
           <div className="h-[200px] w-full flex items-center justify-center">
@@ -69,7 +62,7 @@ const SideBar: FC<SideBarProps> = ({}) => {
         <nav className="text-center text-secondary">
           <ul>
             {menuList?.map((item, index) => (
-              <li key={index} className="py-2 text-sm hover:text-hoverPrimary">
+              <li key={index} className="py-2 text- hover:text-hoverPrimary">
                 <a href={item?.path}>{item?.name}</a>
               </li>
             ))}
@@ -77,13 +70,13 @@ const SideBar: FC<SideBarProps> = ({}) => {
         </nav>
 
         <nav className="text-sm my-[2rem] flex justify-center gap-2 text-secondary">
-          <a
+          {/* <a
             className="cursor-pointer hover:text-hoverPrimary"
             onClick={openMidSection}
           >
             推荐
           </a>
-          /
+          / */}
           <a
             className="cursor-pointer hover:text-hoverPrimary"
             onClick={openMidSection}
@@ -93,10 +86,21 @@ const SideBar: FC<SideBarProps> = ({}) => {
           {">>"}
         </nav>
 
-        <nav className="flex justify-center gap-2 text-secondary">
-          <a>github</a>
-          <a>1</a>
-          <a>1</a>
+        <nav className="flex flex-row items-center justify-center gap-2 text-secondary">
+          <a
+            target="_blank"
+            title="github"
+            href="https://github.com/fwx5618177"
+          >
+            <FaGithubSquare className="cursor-pointer text-primary hover:text-hoverPrimary" />
+          </a>
+          <a
+            title="email"
+            target="_blank"
+            href="mailto:fengwenxuan2006@126.com"
+          >
+            <FaEnvelope className="cursor-pointer text-primary hover:text-hoverPrimary" />
+          </a>
         </nav>
       </div>
     </div>

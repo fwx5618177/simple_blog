@@ -15,6 +15,7 @@ const ArticleList: React.FC<ArticleListProps> = ({}) => {
         {
           title: "111",
           time: dayjs(),
+          type: "article",
           tags: [
             {
               name: "JavaScript",

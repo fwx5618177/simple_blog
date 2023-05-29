@@ -6,9 +6,12 @@
   background-color: #eaeaea;
   overflow-x: hidden;
   overflow-y: auto;
-
+  /* user-select: none; */
+  text-transform: capitalize;
 }
 
 * {
-  font-family: fantasy;
+  font-family: serif;
 }
+
+

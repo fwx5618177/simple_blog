@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  important: true,
   theme: {
     extend: {
       colors: {
@@ -25,11 +26,17 @@ module.exports = {
         title: "2rem",
         subTitle: "1.2rem",
       },
+      padding: {
+        default: "1.2rem",
+      },
       fontWeight: {
         normal: 400,
         medium: 500,
         bold: 600,
         primary: 700,
+      },
+      fontFamily: {
+        default: ["Roboto", "sans-serif"],
       },
       borderColor: {
         primary: "#d3d3d3",
@@ -43,6 +50,11 @@ module.exports = {
         hoverSelect: "#4d637f33",
         unSelect: "#4d4d4d",
         hoverUnSelect: "#4d4d4daa",
+        tagsShow: "#ffffff33",
+        paper: "#fff",
+        alert: "#f44336",
+        error: "#f44336",
+        success: "#2E8B57",
       },
       transitionDuration: {
         800: "800ms",
@@ -50,6 +62,11 @@ module.exports = {
         2000: "2000ms",
       },
       backgroundImage: {},
+      borderColor: {
+        default: "#ddd",
+        primary: "#fff",
+        secondary: "#4d4d4d",
+      },
     },
   },
   plugins: [],
