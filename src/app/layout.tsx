@@ -6,6 +6,8 @@ import SideBar from "@/layout/home/SideBar";
 import MidSection from "@/components/MidSection";
 import { Providers } from "./providers";
 import RightBody from "@/layout/home/RightBody";
+import Comments from "@/components/comments";
+import Notify from "@/components/Notify/NotifyBase";
 
 const inter = Inter({ subsets: ["latin"] });
 

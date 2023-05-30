@@ -15,6 +15,7 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   react-icons: ^4.8.0
+  react-is: 16.8.0
   sass: ^1.62.1
   styled-components: ^5.3.11
   tailwindcss: 3.3.2
@@ -33,6 +34,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.8.0_react@18.2.0
+  react-is: 16.8.0
   sass: 1.62.1
   tailwindcss: 3.3.2
   typescript: 5.0.4
@@ -40,7 +42,7 @@ dependencies:
 devDependencies:
   '@types/styled-components': 5.1.26
   dayjs: 1.11.7
-  styled-components: 5.3.11_biqbaboplfbrettd7655fr4n2y
+  styled-components: 5.3.11_ioqvsn6irm33o3eeiglthc2j6q
 
 packages:
 
@@ -684,7 +686,7 @@ packages:
       babel-plugin-syntax-jsx: 6.18.0
       lodash: 4.17.21
       picomatch: 2.3.1
-      styled-components: 5.3.11_biqbaboplfbrettd7655fr4n2y
+      styled-components: 5.3.11_ioqvsn6irm33o3eeiglthc2j6q
     dev: true
 
   /babel-plugin-syntax-jsx/6.18.0:
@@ -2482,6 +2484,9 @@ packages:
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
+  /react-is/16.8.0:
+    resolution: {integrity: sha512-LOy+3La39aduxaPfuj+lCXC5RQ8ukjVPAAsFJ3yQ+DIOLf4eR9OMKeWKF0IzjRyE95xMj5QELwiXGgfQsIJguA==}
+
   /react/18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
@@ -2718,7 +2723,7 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /styled-components/5.3.11_biqbaboplfbrettd7655fr4n2y:
+  /styled-components/5.3.11_ioqvsn6irm33o3eeiglthc2j6q:
     resolution: {integrity: sha512-uuzIIfnVkagcVHv9nE0VPlHPSCmXIUGKfJ42LNjxCCTDTL5sgnJ8Z7GZBq0EnLYGln77tPpEpExt2+qa+cZqSw==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -2736,6 +2741,7 @@ packages:
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-is: 16.8.0
       shallowequal: 1.1.0
       supports-color: 5.5.0
     dev: true

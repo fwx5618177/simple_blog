@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   important: true,
   theme: {
@@ -7,6 +8,12 @@ module.exports = {
       colors: {
         primary: "#eaeaea",
         secondary: "#4d4d4d",
+        success: "#2E8B57",
+        success2: "#7aff0a",
+        warning: "#eab308",
+        info: "#14b8a6",
+        debug: "#6b21a8",
+        error: "#f44336",
       },
       textColor: {
         default: "#fff",
@@ -52,9 +59,8 @@ module.exports = {
         hoverUnSelect: "#4d4d4daa",
         tagsShow: "#ffffff33",
         paper: "#fff",
-        alert: "#f44336",
-        error: "#f44336",
-        success: "#2E8B57",
+        dark: "#343437fa",
+        light: "#fff",
       },
       transitionDuration: {
         800: "800ms",
