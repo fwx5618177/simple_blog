@@ -2,7 +2,21 @@
 module.exports = {
   mode: "jit",
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
-  important: true,
+  safelist: [
+    "bg-primary",
+    "bg-warning",
+    "bg-info",
+    "bg-debug",
+    "bg-error",
+    "bg-success",
+    "bg-success2",
+    "before:bg-warning",
+    "before:bg-info",
+    "before:bg-debug",
+    "before:bg-error",
+    "before:bg-success",
+    "before:bg-success2",
+  ],
   theme: {
     extend: {
       colors: {

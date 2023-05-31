@@ -73,7 +73,7 @@ export const AlertsProvider: FC<{
       {children}
       <Snack open={filteredAlerts?.length > 0}>
         {filteredAlerts?.map((cur, index) => {
-          if (index < 6) {
+          if (index < 5) {
             return (
               <NotifyBase
                 title={cur.title}

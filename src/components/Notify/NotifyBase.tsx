@@ -5,7 +5,6 @@ import { ALERT_SEVERITY, NotifyProps } from "../../../types/alert";
 import { AiOutlineClose } from "react-icons/ai";
 import { NotifyColorDynamic, getAlertColor } from "@/utils/helper";
 import Duration from "./Duration";
-import styled from "styled-components";
 
 const NotifyBase: FC<NotifyProps> = ({
   theme = "dark",

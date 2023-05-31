@@ -33,6 +33,23 @@ export const getAlertColor = (severity: ALERT_SEVERITY, _theme?: Theme) => {
   }
 };
 
+export const getAlertBasedColor = (severity: ALERT_SEVERITY) => {
+  switch (severity) {
+    case ALERT_SEVERITY.SUCCESS:
+      return NotifyColorDynamic[ALERT_SEVERITY.SUCCESS];
+    case ALERT_SEVERITY.INFO:
+      return NotifyColorDynamic[ALERT_SEVERITY.INFO];
+    case ALERT_SEVERITY.DEBUG:
+      return NotifyColorDynamic[ALERT_SEVERITY.DEBUG];
+    case ALERT_SEVERITY.WARNING:
+      return NotifyColorDynamic[ALERT_SEVERITY.WARNING];
+    case ALERT_SEVERITY.ERROR:
+      return NotifyColorDynamic[ALERT_SEVERITY.ERROR];
+    default:
+      return NotifyColorDynamic[ALERT_SEVERITY.SUCCESS];
+  }
+};
+
 export const getKey = (() => {
   const MIN = 0;
   let index = MIN;
