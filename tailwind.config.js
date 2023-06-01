@@ -7,6 +7,9 @@ module.exports = {
       pattern: /bg-.*/,
       variants: ["before"],
     },
+    {
+      pattern: /(h-|min-h-).*/,
+    },
   ],
   theme: {
     extend: {
@@ -19,6 +22,20 @@ module.exports = {
         info: "#14b8a6",
         debug: "#6b21a8",
         error: "#f44336",
+      },
+      height: {
+        sm: "50vh",
+        base: "65vh",
+        lg: "75vh",
+        xl: "85vh",
+        xxl: "90vh",
+      },
+      minHeight: {
+        sm: "50vh",
+        base: "60vh",
+        lg: "70vh",
+        xl: "80vh",
+        xxl: "90vh",
       },
       textColor: {
         default: "#fff",
@@ -50,9 +67,6 @@ module.exports = {
       fontFamily: {
         default: ["Roboto", "sans-serif"],
       },
-      borderColor: {
-        primary: "#d3d3d3",
-      },
       backgroundColor: {
         default: "#4d4d4d",
         primary: "#3b82f6",
@@ -66,6 +80,7 @@ module.exports = {
         paper: "#fff",
         dark: "#343437fa",
         light: "#fff",
+        blockQuote: "#f6f6f6",
       },
       transitionDuration: {
         800: "800ms",
@@ -77,6 +92,8 @@ module.exports = {
         default: "#ddd",
         primary: "#fff",
         secondary: "#4d4d4d",
+        fifth: "#d3d3d3",
+        blockQuote: "#657b83",
       },
     },
   },

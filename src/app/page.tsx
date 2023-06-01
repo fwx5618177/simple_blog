@@ -1,7 +1,7 @@
 "use client";
 
-import ArticleList from "@/components/ArticleList";
 import { useBase } from "@/contexts/BaseProvider";
+import MainPage from "@/views/Main";
 
 export default function Page() {
   const { setIsMidOpen, isMidOpen } = useBase();
@@ -13,7 +13,7 @@ export default function Page() {
         if (isMidOpen) setIsMidOpen(false);
       }}
     >
-      <ArticleList />
+      <MainPage />
     </main>
   );
 }

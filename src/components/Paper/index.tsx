@@ -7,9 +7,14 @@ const Paper: FC<PaperProps> = ({
   title = "title",
   time = new Date(),
   children,
+  pageSize = "base",
 }) => {
+  const size = `min-h-${pageSize}`;
+
   return (
-    <article className="shadow-xl min-h-[60vh] bg-paper m-5 border-default border-[1px] border-solid border-t-primary border-b-primary rounded-[4px] transition-all duration-700 ease">
+    <article
+      className={`shadow-xl ${size} bg-paper m-5 border-default border-[1px] border-solid border-l-0 border-t-0 border-t-primary border-b-primary rounded-[4px] transition-all duration-700 ease`}
+    >
       <header className="text-primary w-full h-[80px] border-secondary border-l-[5px] border-solid flex flex-row justify-between items-center px-10">
         <h1 className="font-bold text-title">{title}</h1>
         <a href="/">
