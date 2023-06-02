@@ -8,7 +8,7 @@ module.exports = {
       variants: ["before"],
     },
     {
-      pattern: /(h-|min-h-).*/,
+      pattern: /(h-|min-h-|max-h-).*/,
     },
   ],
   theme: {
@@ -24,6 +24,7 @@ module.exports = {
         error: "#f44336",
       },
       height: {
+        msm: "45vh",
         sm: "50vh",
         base: "65vh",
         lg: "75vh",
@@ -31,6 +32,7 @@ module.exports = {
         xxl: "90vh",
       },
       minHeight: {
+        msm: "45vh",
         sm: "50vh",
         base: "60vh",
         lg: "70vh",
@@ -38,6 +40,7 @@ module.exports = {
         xxl: "90vh",
       },
       textColor: {
+        initial: "#000",
         default: "#fff",
         primary: "#696969",
         secondary: "#999",
@@ -46,6 +49,8 @@ module.exports = {
         fifth: "#333",
         hoverPrimary: "#483a3a",
         hoverSecondary: "#999",
+        paperRead: "#08c",
+        hoverPaperRead: "#0055aa",
       },
       fontSize: {
         sm: "0.625rem", // 小号字体大小
@@ -54,6 +59,7 @@ module.exports = {
         xl: "1.8rem", // 超大号字体大小
         title: "2rem",
         subTitle: "1.2rem",
+        about: "14px",
       },
       padding: {
         default: "1.2rem",
@@ -66,6 +72,7 @@ module.exports = {
       },
       fontFamily: {
         default: ["Roboto", "sans-serif"],
+        about: ["lucia", "sans-serif"],
       },
       backgroundColor: {
         default: "#4d4d4d",
@@ -81,6 +88,7 @@ module.exports = {
         dark: "#343437fa",
         light: "#fff",
         blockQuote: "#f6f6f6",
+        hrLine: "#ddd",
       },
       transitionDuration: {
         800: "800ms",

@@ -2,6 +2,7 @@ import { FC } from "react";
 import { PaperProps } from "../../../types/paper";
 import dayjs from "dayjs";
 import { BsCalendarDate } from "react-icons/bs";
+import { getContentSize } from "@/utils/helper";
 
 const Paper: FC<PaperProps> = ({
   title = "title",
@@ -10,6 +11,7 @@ const Paper: FC<PaperProps> = ({
   pageSize = "base",
 }) => {
   const size = `min-h-${pageSize}`;
+  // const contentSize = `min-h-${getContentSize(pageSize)}`;
 
   return (
     <article
@@ -27,7 +29,7 @@ const Paper: FC<PaperProps> = ({
           </time>
         </a>
       </header>
-      <div className="mx-10 my-5 text-lg text-primary">{children}</div>
+      <div className={`mx-10 my-5 text-lg text-primary`}>{children}</div>
     </article>
   );
 };

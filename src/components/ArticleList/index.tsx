@@ -3,75 +3,19 @@ import dayjs from "dayjs";
 import ArticlePagination from "../ArticlePagination";
 import { useState } from "react";
 import { BsFillTagFill, BsCalendarDate } from "react-icons/bs";
+import { articleList } from "@/mock/article.mock";
 
 const ArticleList: React.FC<ArticleListProps> = ({}) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const list: ArticleListDataProps[] = [
-    {
-      year: 2021,
-      title: "2021年度总结",
-      articles: [
-        {
-          title: "111",
-          time: dayjs(),
-          type: "article",
-          tags: [
-            {
-              name: "JavaScript",
-              color: "#aa3aaa",
-              href: "/",
-            },
-            {
-              name: "PHP",
-              color: "#aa3aaa",
-              href: "/",
-            },
-            {
-              name: "JS",
-              color: "#aa3aaa",
-              href: "/",
-            },
-          ],
-        },
-        {
-          title: "111",
-          time: dayjs().format("YYYY-MM-DD"),
-        },
-        {
-          title: "111",
-          time: dayjs().format("YYYY-MM-DD"),
-        },
-      ],
-    },
-    {
-      year: 2022,
-      title: "2022年度总结",
-      articles: [
-        {
-          title: "111",
-          time: dayjs().format("YYYY-MM-DD"),
-        },
-        {
-          title: "111",
-          time: dayjs().format("YYYY-MM-DD"),
-        },
-        {
-          title: "111",
-          time: dayjs().format("YYYY-MM-DD"),
-        },
-      ],
-    },
-  ];
-
   return (
     <>
       <section className="bg-[#fff] rounded-[6px]">
-        {list?.map((item, index) => (
+        {articleList?.map((item, index) => (
           <section
             key={index}
             className={`relative w-full ${
-              index === list?.length - 1
+              index === articleList?.length - 1
                 ? ""
                 : "border-b-[1px] border-dashed border-primary"
             }`}

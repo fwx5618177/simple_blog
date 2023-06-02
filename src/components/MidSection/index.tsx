@@ -154,7 +154,7 @@ const MidSection: FC<MidSectionProps> = ({}) => {
     <div
       className={`relative ${
         isMidOpen ? "w-[380px]" : "w-0"
-      } h-full transition-all duration-700 ease-in-out overflow-x-hidden`}
+      } h-full transition-all duration-700 ease-in-out overflow-x-hidden overflow-y-auto`}
     >
       {isMidOpen && (
         <>
@@ -165,7 +165,7 @@ const MidSection: FC<MidSectionProps> = ({}) => {
               onChange={(value) => setIsShowTag(value)}
             />
           </header>
-          <div className="w-full h-full mt-5 overflow-y-auto transition-all duration-700 ease-in-out">
+          <div className="w-full h-full mt-5 transition-all duration-700 ease-in-out">
             <section
               className={`overflow-x-hidden bg-tagsShow p-[10px] mx-[10px] my-[15px] ${
                 isShowTag ? "block" : "hidden"

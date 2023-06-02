@@ -1,4 +1,4 @@
-type PaperPageSize = "sm" | "base" | "lg" | "xl";
+export type PaperPageSize = "sm" | "base" | "lg" | "xl";
 
 export interface PaperProps {
   title: string;

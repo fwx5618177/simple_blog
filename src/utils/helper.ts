@@ -1,4 +1,5 @@
 import { ALERT_SEVERITY, Theme } from "../../types/alert";
+import { PaperPageSize } from "../../types/paper";
 
 export const NotifyColorEnum = {
   [ALERT_SEVERITY.SUCCESS]: "success",
@@ -47,6 +48,21 @@ export const getAlertBasedColor = (severity: ALERT_SEVERITY) => {
       return NotifyColorDynamic[ALERT_SEVERITY.ERROR];
     default:
       return NotifyColorDynamic[ALERT_SEVERITY.SUCCESS];
+  }
+};
+
+export const getContentSize = (size: PaperPageSize) => {
+  switch (size) {
+    case "sm":
+      return "msm";
+    case "base":
+      return "sm";
+    case "lg":
+      return "base";
+    case "xl":
+      return "lg";
+    default:
+      return "msm";
   }
 };
 

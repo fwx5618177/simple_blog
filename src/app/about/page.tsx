@@ -11,9 +11,9 @@ export default function Page() {
 
   return (
     <main>
-      <Paper title={"关于我"} time={dayjs().toString()}>
-        <article className="w-full">
-          <ul className="px-[3rem] leading-8">
+      <Paper title={"关于我"} time={dayjs().toString()} pageSize="sm">
+        <article className={`relative w-full`}>
+          <ul className="px-[3rem] leading-8 text-fourth text-about font-about">
             {aboutMock?.map((item, index) => {
               return (
                 <li key={index} className={`relative ${styles.listItem}`}>
@@ -22,10 +22,12 @@ export default function Page() {
               );
             })}
           </ul>
-          <h2 className="my-10 py-2 text-left text-title text-primary border-b-[1px] border-b-solid border-b-default">
+          <h2
+            className={`my-10 py-2 text-left text-title text-primary border-b-[1px] border-b-solid border-b-default`}
+          >
             参与的项目
           </h2>
-          <div className="flex flex-row items-center justify-center gap-5 border-b-[1px] border-b-solid border-b-default py-[60px]">
+          <div className="min-h-[20vh] flex flex-row items-center justify-center gap-5 py-6">
             <button
               onClick={() => {
                 alertSuccess("success");
@@ -43,7 +45,9 @@ export default function Page() {
               Contact
             </button>
           </div>
-          <div className="my-3 ">1222</div>
+          <div className="relative w-full bottom-0 before:content-[''] before:absolute before:w-full before:h-[1px] before:m-0 before:top-[-10px] before:left-0 before:bg-hrLine">
+            1222
+          </div>
         </article>
       </Paper>
     </main>

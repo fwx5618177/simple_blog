@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --var-scrollbar-width: 8px;
+  --var-scrollbar-default: #000;
+  --var-scrollbar-primary: #000;
+  --var-scrollbar-secondary: #000;
+  --var-scrollbar-hover: #000;
+  --var-scrollbar-active: #000;
+  --var-scrollbar-radius: 6px;
+
+  --var-scrollbar: var(--var-scrollbar-default);
+  --var-scrollbar-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
 :root, body {
   background-color: #eaeaea;
   overflow-x: hidden;
@@ -13,5 +26,25 @@
 * {
   font-family: serif;
 }
+
+
+::-webkit-scrollbar {
+  width: var(--var-scrollbar-width);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--var-scrollbar);
+  border-radius: var(--var-scrollbar-radius);
+  box-shadow: inset var(--var-scrollbar-shadow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--var-scrollbar-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--var-scrollbar-active);
+}
+
 
 

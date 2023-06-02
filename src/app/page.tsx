@@ -8,10 +8,10 @@ export default function Page() {
 
   return (
     <main
-      className="overflow-auto"
       onClick={() => {
         if (isMidOpen) setIsMidOpen(false);
       }}
+      className="flex flex-col gap-8"
     >
       <MainPage />
     </main>

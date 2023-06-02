@@ -1,16 +1,23 @@
 import ArticlePost from "@/components/ArticlePost";
-import Paper from "@/components/Paper";
-import dayjs from "dayjs";
+import { ArticleList } from "@/mock/view.main.mock";
+import { Suspense } from "react";
 
 const MainPage = () => {
   return (
-    <ArticlePost
-      title={"第一篇文章"}
-      time={dayjs().toString()}
-      blockquote={"1213133".repeat(10000)}
-    >
-      111
-    </ArticlePost>
+    <>
+      {ArticleList?.map((item, index) => (
+        <ArticlePost
+          key={index}
+          title={item?.title}
+          time={item?.time}
+          blockquote={item?.blockquote}
+          pageSize="sm"
+          link={item?.link}
+        >
+          {item?.desc}
+        </ArticlePost>
+      ))}
+    </>
   );
 };
 

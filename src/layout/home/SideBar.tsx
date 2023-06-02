@@ -92,14 +92,20 @@ const SideBar: FC<SideBarProps> = ({}) => {
             title="github"
             href="https://github.com/fwx5618177"
           >
-            <FaGithubSquare className="cursor-pointer text-primary hover:text-hoverPrimary" />
+            <FaGithubSquare
+              size={"2rem"}
+              className="cursor-pointer text-hoverPrimary hover:text-primary"
+            />
           </a>
           <a
             title="email"
             target="_blank"
             href="mailto:fengwenxuan2006@126.com"
           >
-            <FaEnvelope className="cursor-pointer text-primary hover:text-hoverPrimary" />
+            <FaEnvelope
+              size={"2rem"}
+              className="p-[7px] rounded-[50%] bg-[#005a87] cursor-pointer text-default hover:bg-[#005a876d] transition-all duration-700"
+            />
           </a>
         </nav>
       </div>
