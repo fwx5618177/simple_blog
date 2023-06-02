@@ -4,9 +4,20 @@ import ArticlePagination from "../ArticlePagination";
 import { useState } from "react";
 import { BsFillTagFill, BsCalendarDate } from "react-icons/bs";
 import { articleList } from "@/mock/article.mock";
+import { Pagination } from "../../../types/Pagination";
 
 const ArticleList: React.FC<ArticleListProps> = ({}) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [pagination, setPagination] = useState<Pagination>({
+    current: 1,
+    total: 20,
+  });
+
+  const handlePagination = (page: number) => {
+    setPagination({
+      ...pagination,
+      current: page,
+    });
+  };
 
   return (
     <>
@@ -66,11 +77,11 @@ const ArticleList: React.FC<ArticleListProps> = ({}) => {
         ))}
       </section>
       <ArticlePagination
-        currentPage={currentPage}
-        totalPages={20}
-        onNextPage={(page) => setCurrentPage(page)}
-        onPrevPage={(page) => setCurrentPage(page)}
-        onPageChange={(page) => setCurrentPage(page)}
+        currentPage={pagination?.current}
+        totalPages={pagination?.total}
+        onNextPage={handlePagination}
+        onPrevPage={handlePagination}
+        onPageChange={handlePagination}
       />
     </>
   );
