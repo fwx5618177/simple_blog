@@ -2,7 +2,7 @@ import { FC } from "react";
 import { PaperProps } from "../../../types/paper";
 import dayjs from "dayjs";
 import { BsCalendarDate } from "react-icons/bs";
-import { getContentSize } from "@/utils/helper";
+import { getContentSize } from "../../../utils/helper";
 
 const Paper: FC<PaperProps> = ({
   title = "title",
@@ -22,10 +22,10 @@ const Paper: FC<PaperProps> = ({
         <a href="/">
           <time
             className="flex flex-row items-center gap-2 text-lg"
-            dateTime={dayjs(time).format("YYYY-MM-DD")}
+            dateTime={dayjs(time).format("YYYY-MM-DD HH:mm:ss")}
           >
             <BsCalendarDate className="text-primary" />
-            {dayjs(time).format("YYYY-MM-DD")}
+            {dayjs(time).format("YYYY-MM-DD HH:mm:ss")}
           </time>
         </a>
       </header>

@@ -1,6 +1,6 @@
 import { FC, useEffect, useMemo, useState } from "react";
 import { DurationProps } from "../../../types/alert";
-import { getAlertColor } from "@/utils/helper";
+import { getAlertColor } from "../../../utils/helper";
 
 const Duration: FC<DurationProps> = ({ duration = 2, severity }) => {
   const bgClass = useMemo(() => `bg-${getAlertColor(severity)}`, [severity]);
