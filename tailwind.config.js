@@ -10,6 +10,9 @@ module.exports = {
     {
       pattern: /(h-|min-h-|max-h-).*/,
     },
+    {
+      pattern: /border-.*/,
+    },
   ],
   theme: {
     extend: {

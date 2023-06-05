@@ -1,13 +1,17 @@
-export interface DocDir {
+import { ArticleListDataTags } from "./article";
+
+export interface DocBase {
+  year: string;
   title: string;
-  time: string;
   path: string;
-  tags: string[];
+  tags: ArticleListDataTags[];
 }
 
-export interface DocContentTypes {
-  content: string;
-  title: string;
+export interface DocDir extends DocBase {
   time: string;
-  tags: string[];
 }
+
+export type DocContentTypes = DocDir & {
+  content: string;
+  blockquote?: string;
+};

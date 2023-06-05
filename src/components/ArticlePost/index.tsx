@@ -15,9 +15,11 @@ const ArticlePost: FC<
   return (
     <Paper title={title} time={time} pageSize={pageSize}>
       <div className="h-full p-0 m-0">
-        <blockquote className="break-all px-[20px] w-full bg-blockQuote leading-8 py-[15px] mt-10 border-l-[5px] border-l-solid border-l-blockQuote text-lg text-fourth">
-          <p className="line-clamp-3">{blockquote}</p>
-        </blockquote>
+        {blockquote && (
+          <blockquote className="break-all px-[20px] w-full bg-blockQuote leading-8 py-[15px] mt-10 border-l-[5px] border-l-solid border-l-blockQuote text-lg text-fourth">
+            <p className="line-clamp-3">{blockquote}</p>
+          </blockquote>
+        )}
         <div
           className={`m-3 pr-4 break-all w-full ${contentSize} overflow-hidden line-clamp-[15]`}
         >

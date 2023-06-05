@@ -1,15 +1,19 @@
+"use client";
+
 import { ArticleListDataProps, ArticleListProps } from "../../../types/article";
 import dayjs from "dayjs";
 import ArticlePagination from "../ArticlePagination";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsFillTagFill, BsCalendarDate } from "react-icons/bs";
 import { articleList } from "@/mock/article.mock";
 import { Pagination } from "../../../types/Pagination";
 
-const ArticleList: React.FC<ArticleListProps> = ({}) => {
+const ArticleList: React.FC<ArticleListProps> = () => {
+  const [data, setData] = useState<ArticleListDataProps[]>([]);
   const [pagination, setPagination] = useState<Pagination>({
     current: 1,
     total: 20,
+    pageSize: 6,
   });
 
   const handlePagination = (page: number) => {
@@ -19,20 +23,36 @@ const ArticleList: React.FC<ArticleListProps> = ({}) => {
     });
   };
 
+  const queryData = async () => {
+    const response = await fetch("/api/list");
+    const { data, total, current } = await response.json();
+
+    setData(data);
+    setPagination({
+      ...pagination,
+      total,
+      current,
+    });
+  };
+
+  useEffect(() => {
+    queryData();
+  }, []);
+
   return (
     <>
-      <section className="bg-[#fff] rounded-[6px]">
-        {articleList?.map((item, index) => (
+      <section className="bg-[#fff] rounded-[6px] min-h-sm">
+        {data?.map((item, index) => (
           <section
             key={index}
             className={`relative w-full ${
               index === articleList?.length - 1
                 ? ""
-                : "border-b-[1px] border-dashed border-primary"
+                : "border-b-[1px] border-dashed border-secondary"
             }`}
           >
             <div className="w-[200px] absolute text-xl font-primary text-primary py-[20px] pl-[60px]">
-              <a href="">2020</a>
+              <a href={`/year/${item?.year}`}>{item?.year}</a>
             </div>
             {item?.articles.map((citem, cindex) => (
               <article
@@ -40,11 +60,13 @@ const ArticleList: React.FC<ArticleListProps> = ({}) => {
                 className={`relative h-[100px] ml-[220px] mr-[60px] py-[20px] ${
                   cindex === item?.articles?.length - 1
                     ? ""
-                    : "border-b-[1px] border-solid border-primary"
+                    : "border-b-[1px] border-solid border-secondary"
                 }`}
               >
                 <div className="min-h-[36px] flex flex-row justify-between mx-8 text-forth">
-                  <h1>{citem?.title}</h1>
+                  <h1>
+                    <a href={citem?.link}>{citem?.title}</a>
+                  </h1>
                   <p className="flex flex-row gap-2">
                     <BsCalendarDate className="text-secondary" />
                     <time
@@ -78,7 +100,8 @@ const ArticleList: React.FC<ArticleListProps> = ({}) => {
       </section>
       <ArticlePagination
         currentPage={pagination?.current}
-        totalPages={pagination?.total}
+        pageSize={pagination?.pageSize}
+        total={pagination?.total}
         onNextPage={handlePagination}
         onPrevPage={handlePagination}
         onPageChange={handlePagination}

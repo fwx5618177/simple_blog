@@ -4,11 +4,13 @@ import styles from "@/styles/style.module.scss";
 
 const ArticlePagination: FC<ArticlePaginationProps> = ({
   currentPage,
-  totalPages,
+  pageSize,
+  total,
   onNextPage,
   onPrevPage,
   onPageChange,
 }) => {
+  const totalPages = Math.ceil(total / pageSize);
   const generatePaginationArray = (current: number, total: number): any[] => {
     if (total <= 1) {
       return [1];

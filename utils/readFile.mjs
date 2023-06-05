@@ -15,6 +15,7 @@ export const readDir = (path = BASE_DIR) => {
         path: filePath,
         time: stats?.birthtime?.toString(),
         tags: [],
+        year: file.year,
       };
     });
 

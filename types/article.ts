@@ -1,10 +1,12 @@
 import dayjs from "dayjs";
+import { DocDir } from "./doc";
 
 export interface ArticleListProps {}
 
 export type ArticlePaginationProps = {
   currentPage: number;
-  totalPages: number;
+  pageSize: number;
+  total: number;
   onNextPage: (page: any) => void;
   onPrevPage: (page: any) => void;
   onPageChange: (page: any) => void;
@@ -13,8 +15,10 @@ export type ArticlePaginationProps = {
 export type ArticleListDataArticles = {
   title: string;
   time: string | dayjs.Dayjs;
-  type?: string;
   tags?: ArticleListDataTags[];
+  desc?: string;
+  link?: string;
+  blockquote?: string;
 };
 
 export type ArticleListDataTags = {

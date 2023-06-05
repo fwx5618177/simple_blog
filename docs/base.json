@@ -2,11 +2,24 @@
     {
         "title": "instro",
         "path": "docs/instro.md",
-        "tags": []
+        "tags": [],
+        "year": "2023"
     },
     {
         "title": "第一篇文章",
         "path": "docs/2023/06/start.md",
-        "tags": []
+        "tags": [
+            {
+                "name": "php",
+                "color": "#777"
+            }
+        ],
+        "year": "2023"
+    },
+    {
+        "title": "第二篇文章",
+        "path": "docs/2023/06/second.md",
+        "tags": [],
+        "year": "2023"
     }
 ]

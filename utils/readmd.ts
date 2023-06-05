@@ -1,4 +1,10 @@
 import { readFileSync } from "fs";
+import { BASE_OUT_FILE_PATH } from "../constants/conf.mjs";
+import {
+  ArticleListDataArticles,
+  ArticleListDataProps,
+} from "../types/article";
+import { DocContentTypes, DocDir } from "../types/doc";
 
 export const readMD = (md: string) => {
   try {
@@ -10,3 +16,65 @@ export const readMD = (md: string) => {
     throw new Error("Error reading markdown file:", err.message);
   }
 };
+
+export async function queryDocs(
+  path = BASE_OUT_FILE_PATH
+): Promise<ArticleListDataProps[]> {
+  const list = readFileSync(path, "utf-8").toString();
+  const data: DocDir[] = JSON.parse(list);
+
+  const yearList = data.reduce((prev, curr) => {
+    const year = curr.year;
+    const findIndex = prev.findIndex((item) => item.year === year);
+    const link = curr?.path?.replace(/\.md$/, "");
+
+    if (findIndex === -1) {
+      prev.push({
+        year,
+        title: curr.title,
+        articles: [
+          {
+            title: curr.title,
+            time: curr.time,
+            tags: curr.tags,
+            link: `/${link}`,
+          },
+        ],
+      });
+    } else {
+      prev[findIndex].articles.push({
+        title: curr.title,
+        time: curr.time,
+        tags: curr.tags,
+        link: `/${link}`,
+      });
+    }
+
+    return prev;
+  }, [] as ArticleListDataProps[]);
+
+  return yearList;
+}
+
+export async function queryDesc(
+  path = BASE_OUT_FILE_PATH
+): Promise<ArticleListDataArticles[]> {
+  const list = readFileSync(path, "utf-8").toString();
+  const data: DocContentTypes[] = JSON.parse(list);
+
+  const descList = data?.map((item) => {
+    const desc = readMD(item?.path);
+    const link = item?.path?.replace(/\.md$/, "");
+
+    return {
+      title: item.title,
+      time: item.time,
+      tags: item.tags,
+      desc,
+      link: `/${link}`,
+      blockquote: item?.blockquote,
+    };
+  });
+
+  return descList;
+}
