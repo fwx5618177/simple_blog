@@ -21,5 +21,17 @@
         "path": "docs/2023/06/second.md",
         "tags": [],
         "year": "2023"
+    },
+    {
+        "title": "第二篇文章",
+        "path": "docs/2023/06/second.md",
+        "tags": [],
+        "year": "2023"
+    },
+    {
+        "title": "技术选型",
+        "path": "docs/2023/06/Blog.md",
+        "tags": [],
+        "year": "2023"
     }
 ]

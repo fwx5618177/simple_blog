@@ -44,7 +44,7 @@ const SideBar: FC<SideBarProps> = ({}) => {
                   alt=""
                   width={200}
                   height={200}
-                  className="h-full w-full rounded-[50%] object-cover rotate-[20deg] transform-gpu hover:rotate-0 transition-all duration-500 ease-in-out cursor-pointer"
+                  className="h-full w-full rounded-[50%] object-cover rotate-[20deg] transform-gpu hover:rotate-0 cursor-pointer"
                 />
               </a>
             </div>
@@ -104,7 +104,7 @@ const SideBar: FC<SideBarProps> = ({}) => {
           >
             <FaEnvelope
               size={"2rem"}
-              className="p-[7px] rounded-[50%] bg-[#005a87] cursor-pointer text-default hover:bg-[#005a876d] transition-all duration-700"
+              className="p-[7px] rounded-[50%] bg-[#005a87] cursor-pointer text-default hover:bg-[#005a876d]"
             />
           </a>
         </nav>

@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cli": "ts-node ./scripts/bin.mjs"
+    "doc": "ts-node ./scripts/bin.mjs"
   },
   "dependencies": {
     "@next/swc-darwin-arm64": "^13.4.4",
@@ -16,6 +16,7 @@
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
+    "bignumber.js": "^9.1.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "fs": "0.0.1-security",
@@ -27,6 +28,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-is": "16.8.0",
+    "react-query": "^3.39.3",
     "sass": "^1.62.1",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"

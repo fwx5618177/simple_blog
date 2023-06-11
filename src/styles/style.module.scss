@@ -31,7 +31,7 @@
         padding: 0;
         height: 1.5px;
         background-color: #b9cbe788;
-        transition: all .6s ease-in-out;
+        transition: background-color .6s ease-in-out;
     }
 
     &:focus::after,

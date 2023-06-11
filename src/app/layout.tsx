@@ -28,7 +28,6 @@ export default function RootLayout({
           position: "relative",
           display: "flex",
           height: "100vh",
-          transition: "all .8s ease",
         }}
       >
         <Providers>

@@ -9,7 +9,6 @@ const ArticlePost: FC<
     link?: string;
   }
 > = ({ title, time, children, pageSize = "base", blockquote, link }) => {
-  // const contentSize = `h-[30vh]`;
   const contentSize = `min-h-${getContentSize(pageSize)}`;
 
   return (

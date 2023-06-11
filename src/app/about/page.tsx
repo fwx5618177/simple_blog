@@ -11,10 +11,14 @@ export default function Page() {
 
   return (
     <main>
-      <Paper title={"关于我"} time={dayjs().toString()} pageSize="sm">
+      <Paper
+        title={"关于我"}
+        time={dayjs("2023-06-12 01:44").toString()}
+        pageSize="sm"
+      >
         <article className={`relative w-full`}>
           <ul className="px-[3rem] leading-8 text-fourth text-about font-about">
-            {aboutMock?.map((item, index) => {
+            {aboutMock?.about?.map((item, index) => {
               return (
                 <li key={index} className={`relative ${styles.listItem}`}>
                   {item}
@@ -27,7 +31,14 @@ export default function Page() {
           >
             参与的项目
           </h2>
-          <div className="min-h-[20vh] flex flex-row items-center justify-center gap-5 py-6">
+          <ul className="px-[3rem] leading-8 text-fourth text-about font-about">
+            {aboutMock?.project?.map((item, index) => (
+              <li className={`relative ${styles.listItem}`} key={index}>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-row items-center justify-center gap-5 py-6 my-3">
             <button
               onClick={() => {
                 alertSuccess("success");
@@ -45,8 +56,9 @@ export default function Page() {
               Contact
             </button>
           </div>
-          <div className="relative w-full bottom-0 before:content-[''] before:absolute before:w-full before:h-[1px] before:m-0 before:top-[-10px] before:left-0 before:bg-hrLine">
-            1222
+          <div className="relative flex justify-between w-full text-base bottom-0 before:content-[''] before:absolute before:w-full before:h-[1px] before:m-0 before:top-[-10px] before:left-0 before:bg-hrLine">
+            <span>{aboutMock?.updatedTime}</span>
+            <span>©2023.</span>
           </div>
         </article>
       </Paper>
