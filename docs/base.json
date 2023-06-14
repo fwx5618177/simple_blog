@@ -10,6 +10,7 @@
         "path": "docs/2023/06/start.md",
         "tags": [
             {
+                "key": "php",
                 "name": "php",
                 "color": "#777"
             }
@@ -31,7 +32,18 @@
     {
         "title": "技术选型",
         "path": "docs/2023/06/Blog.md",
-        "tags": [],
+        "tags": [
+            {
+                "key": "front",
+                "name": "前端",
+                "color": "#888"
+            },
+            {
+                "key": "summary",
+                "name": "总结",
+                "color": "#4d4d4d"
+            }
+        ],
         "year": "2023"
     }
 ]

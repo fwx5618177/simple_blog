@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { BASE_OUT_FILE_PATH } from "../constants/conf.mjs";
+import { BASE_OUT_FILE_PATH } from "../constants/conf";
 import {
   ArticleListDataArticles,
   ArticleListDataProps,
@@ -63,7 +63,7 @@ export async function queryDesc(
   const data: DocContentTypes[] = JSON.parse(list);
 
   const descList = data?.map((item) => {
-    const desc = readMD(item?.path);
+    const desc = item?.instro;
     const link = item?.path?.replace(/\.md$/, "");
 
     return {

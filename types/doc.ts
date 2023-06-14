@@ -11,7 +11,12 @@ export interface DocDir extends DocBase {
   time: string;
 }
 
-export type DocContentTypes = DocDir & {
+export type DocContentTypes = {
+  tags: ArticleListDataTags[];
+  title: string;
+  time: string;
   content: string;
   blockquote?: string;
+  path?: string;
+  instro?: string;
 };

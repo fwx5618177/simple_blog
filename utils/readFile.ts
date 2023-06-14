@@ -1,6 +1,11 @@
 import { join } from "path";
 import { statSync, readdirSync, writeFileSync, readFileSync } from "fs";
-import { BASE_DIR, BASE_OUT_FILE } from "../constants/conf.mjs";
+import {
+  BASE_DIR,
+  BASE_IN_FILE_PATH,
+  BASE_OUT_FILE,
+  BASE_OUT_FILE_PATH,
+} from "../constants/conf";
 
 export const readDir = (path = BASE_DIR) => {
   try {
@@ -15,21 +20,21 @@ export const readDir = (path = BASE_DIR) => {
         path: filePath,
         time: stats?.birthtime?.toString(),
         tags: [],
-        year: file.year,
+        year: (file as any)?.year,
       };
     });
 
     return fileList;
-  } catch (err) {
+  } catch (err: Error | any) {
     throw new Error("Generate list error:", err?.message);
   }
 };
 
-export const writeToFile = (path = BASE_OUT_FILE_PATH, data) => {
+export const writeToFile = (path = BASE_OUT_FILE_PATH, data: any) => {
   try {
     const jsonData = JSON.stringify(data);
     writeFileSync(path, jsonData, "utf-8");
-  } catch (err) {
+  } catch (err: any) {
     throw new Error("File error:", err?.message);
   }
 };
@@ -39,7 +44,7 @@ export const readFile = (path = BASE_IN_FILE_PATH) => {
     const jsonData = readFileSync(path).toString();
 
     return jsonData;
-  } catch (err) {
+  } catch (err: any) {
     throw new Error("ReadFile error:", err?.message);
   }
 };

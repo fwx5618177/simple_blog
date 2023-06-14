@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "doc": "ts-node ./scripts/bin.mjs"
+    "doc": "ts-node -r tsconfig-paths/register ./scripts/bin.ts"
   },
   "dependencies": {
     "@next/swc-darwin-arm64": "^13.4.4",
@@ -21,6 +21,7 @@
     "eslint-config-next": "13.4.4",
     "fs": "0.0.1-security",
     "marked": "^5.0.4",
+    "marked-mangle": "^1.0.1",
     "next": "13.4.4",
     "path": "^0.12.7",
     "postcss": "8.4.23",
@@ -31,6 +32,7 @@
     "react-query": "^3.39.3",
     "sass": "^1.62.1",
     "tailwindcss": "3.3.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "5.0.4"
   },
   "devDependencies": {

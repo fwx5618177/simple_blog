@@ -4,4 +4,41 @@
         margin-top: 0;
         padding-top: 0;
     }
+
+    pre {
+        position: relative;
+        background-color: #000;
+        margin: 1.2rem 0;
+        padding: 2rem;
+        color: #fff;
+        border-radius: 6px;
+        // border: .1rem solid #03A9F4;
+
+
+        code {}
+
+        &::before {
+            content: '';
+            position: absolute;
+
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #03A9F4;
+            border: 1.2px solid #fff;
+        }
+
+        &::after {
+            content: 'Code';
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: .2rem 1.4rem;
+            background-color: #03A9F4;
+            border-radius: 0 0 0 6px;
+            cursor: pointer;
+        }
+    }
 }

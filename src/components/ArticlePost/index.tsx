@@ -21,9 +21,10 @@ const ArticlePost: FC<
         )}
         <div
           className={`m-3 pr-4 break-all w-full ${contentSize} overflow-hidden line-clamp-[15]`}
-        >
-          {children}
-        </div>
+          dangerouslySetInnerHTML={{
+            __html: children as string,
+          }}
+        ></div>
 
         <footer className="relative flex flex-row justify-between w-full before:content-[''] before:absolute before:w-full before:h-[1px] before:m-0 before:top-[-20px] before:bg-hrLine">
           <a
