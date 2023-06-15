@@ -1,6 +1,7 @@
 import { Highlight, themes } from "prism-react-renderer";
 import React from "react";
 import { FC } from "react";
+import styles from "./index.module.scss";
 
 const CodeRender: FC<{ code: string; language: string; theme?: any }> = ({
   code,
@@ -11,10 +12,7 @@ const CodeRender: FC<{ code: string; language: string; theme?: any }> = ({
     <React.Fragment>
       <Highlight code={code} language={language} theme={theme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <div
-            className={`${className} text-sm rounded-[4px] overflow-x-auto`}
-            style={style}
-          >
+          <div className={`${className} ${styles.codeHighLight}`} style={style}>
             {tokens.map((line, i) => (
               <div
                 key={i}
