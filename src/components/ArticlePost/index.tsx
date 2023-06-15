@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import Paper from "../Paper";
 import { PaperProps } from "../../../types/paper";
 import { getContentSize } from "../../../utils/helper";

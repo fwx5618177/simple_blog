@@ -11,7 +11,6 @@ const Paper: FC<PaperProps> = ({
   pageSize = "base",
 }) => {
   const size = `min-h-${pageSize}`;
-  // const contentSize = `min-h-${getContentSize(pageSize)}`;
 
   return (
     <article

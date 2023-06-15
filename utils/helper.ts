@@ -76,3 +76,7 @@ export const getKey = (() => {
     return `${++index}_${now}`;
   };
 })();
+
+export enum PrismThemes {
+  nightOwl = "prism-night-owl",
+}

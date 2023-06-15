@@ -12,3 +12,13 @@ const a = (val) => {
     return val
 }
 ```
+
+以下是新的代码:
+
+```c
+int main() {
+    const int a = 0;
+
+    return 0;
+}
+```

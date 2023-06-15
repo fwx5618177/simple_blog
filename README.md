@@ -18,3 +18,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Todo
 - [ ] 评论区
 - [ ] Alert Msg
+- [ ] code show
+  - [ ] marked -> prismjs -> css 样式 -> 代码高亮
+  - [ ] [acorn](https://zhuanlan.zhihu.com/p/149323563)
