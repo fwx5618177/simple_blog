@@ -29,15 +29,6 @@ export default async function MarkdownPage() {
       const language = className?.split("-")[1];
       const code = children?.[0]?.data;
 
-      console.log(
-        "attribs:",
-        name,
-        attribs,
-        children,
-        className,
-        language,
-        code
-      );
       return <CodeRender code={code} language={language} />;
     }
 
@@ -69,8 +60,6 @@ export default async function MarkdownPage() {
     } else {
       setContent(result);
     }
-
-    console.log(result?.content);
   }, [params?.slug]);
 
   useEffect(() => {

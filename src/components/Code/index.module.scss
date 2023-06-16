@@ -1,5 +1,29 @@
 .codeHighLight {
+    position: relative;
+    max-width: 50rem;
     overflow: auto;
-    padding: .8rem;
+
+    margin: 10px auto;
+    padding: .8rem 1rem;
     border-radius: 8px;
+    font-size: 1.2rem;
+
+
+    .clipboard {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        width: 140px;
+        height: 40px;
+        text-align: center;
+        padding: .5rem;
+        cursor: pointer;
+
+        color: #fff;
+        background-color: #2196F3;
+        border-radius: 0 8px 0 8px;
+
+        user-select: none;
+    }
 }

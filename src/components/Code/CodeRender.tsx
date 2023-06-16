@@ -1,7 +1,7 @@
 import { Highlight, themes } from "prism-react-renderer";
-import React from "react";
-import { FC } from "react";
+import React, { FC } from "react";
 import styles from "./index.module.scss";
+import Copy from "../Copy";
 
 const CodeRender: FC<{ code: string; language: string; theme?: any }> = ({
   code,
@@ -13,23 +13,30 @@ const CodeRender: FC<{ code: string; language: string; theme?: any }> = ({
       <Highlight code={code} language={language} theme={theme}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <div className={`${className} ${styles.codeHighLight}`} style={style}>
-            {tokens.map((line, i) => (
-              <div
-                key={i}
-                {...getLineProps({
-                  line,
-                })}
-              >
-                {line.map((token, key) => (
-                  <span
-                    key={key}
-                    {...getTokenProps({
-                      token,
-                    })}
-                  />
-                ))}
-              </div>
-            ))}
+            <div className={styles.clipboard}>
+              <Copy onCopy={console.log} text={code}>
+                {language}
+              </Copy>
+            </div>
+            {tokens.map((line, i) =>
+              i !== tokens.length - 1 ? (
+                <div
+                  key={i}
+                  {...getLineProps({
+                    line,
+                  })}
+                >
+                  {line.map((token, key) => (
+                    <span
+                      key={key}
+                      {...getTokenProps({
+                        token,
+                      })}
+                    />
+                  ))}
+                </div>
+              ) : null
+            )}
           </div>
         )}
       </Highlight>

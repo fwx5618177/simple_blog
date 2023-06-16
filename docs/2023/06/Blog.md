@@ -22,3 +22,18 @@ int main() {
     return 0;
 }
 ```
+
+新的尝试:
+```tsx
+// 测试注释
+/**
+ * 测试多行
+*/
+const TestComponent: FC<{
+    a: string
+}> = ({ a }) => {
+    return <div>{a}</div>
+}
+
+export default TestComponent
+```
