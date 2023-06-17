@@ -1,6 +1,6 @@
 import ArticlePagination from "@/components/ArticlePagination";
 import ArticlePost from "@/components/ArticlePost";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { ArticleListDataArticles } from "../../../types/article";
 import { Pagination } from "../../../types/Pagination";
 import { useQuery } from "react-query";

@@ -1,24 +1,33 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import { queryDocs } from "./actions";
+import { useCallback, useMemo } from "react";
 import styles from "docs/styles/style.module.scss";
-import { DocContentTypes } from "../../../../types/doc";
 import Paper from "@/components/Paper";
-import dayjs from "dayjs";
 import useParseHTML from "@/hooks/ParseHTML";
 import React from "react";
 import CodeRender from "@/components/Code/CodeRender";
 import { DOMNode } from "html-react-parser";
 import { useParams } from "next/navigation";
+import { useQuery } from "react-query";
+import LoadAnime from "@/components/LoadAnime/LoadAnime";
+import { DocContentTypes } from "../../../../types/doc";
 
 export default async function MarkdownPage() {
   const params = useParams();
-  const [content, setContent] = useState<DocContentTypes>({
-    content: "",
-    title: "",
-    time: "",
-    tags: [],
+
+  const { data, isLoading } = useQuery("docs", async () => {
+    const result = await fetch("/api/docs", {
+      method: "POST",
+      body: JSON.stringify({
+        path: Array.isArray(params?.slug)
+          ? params?.slug.join("/")
+          : params?.slug,
+      }),
+    });
+
+    const data = await result.json();
+
+    return data;
   });
 
   const handleNode = (node: DOMNode): any => {
@@ -36,6 +45,7 @@ export default async function MarkdownPage() {
   };
 
   const callBackNode = useCallback(handleNode, []);
+  const content: DocContentTypes = useMemo(() => data?.data, [data]);
 
   const parsedHtml = useParseHTML({
     html: content?.content as string,
@@ -44,40 +54,23 @@ export default async function MarkdownPage() {
     },
   });
 
-  const loadData = useCallback(async () => {
-    const path = Array.isArray(params?.slug)
-      ? params?.slug.join("/")
-      : params?.slug;
-    const result = await queryDocs(path);
-
-    if (!result) {
-      setContent({
-        content: "404",
-        title: "404",
-        time: dayjs().format("YYYY-MM-DD HH:mm:ss"),
-        tags: [],
-      });
-    } else {
-      setContent(result);
-    }
-  }, [params?.slug]);
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
-
   return (
     <main className={styles?.main}>
-      <Paper title={content?.title} time={content?.time} pageSize="sm">
-        <article
-          className="relative w-full"
-          // dangerouslySetInnerHTML={{
-          //   __html: content?.content,
-          // }}
-        >
-          {parsedHtml}
-        </article>
-      </Paper>
+      {isLoading ? (
+        <LoadAnime />
+      ) : (
+        <Paper title={content?.title} time={content?.time} pageSize="sm">
+          <header></header>
+          <article
+            className="relative w-full"
+            // dangerouslySetInnerHTML={{
+            //   __html: content?.content,
+            // }}
+          >
+            {parsedHtml}
+          </article>
+        </Paper>
+      )}
     </main>
   );
 }

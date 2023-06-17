@@ -8,7 +8,10 @@ const useParseHTML = ({
   html: string;
   options?: HTMLReactParserOptions;
 }) => {
-  const parsedHTML = useMemo(() => parse(html, options), [html, options]);
+  const parsedHTML = useMemo(() => {
+    if (html) return parse(html, options);
+    else return "";
+  }, [html, options]);
 
   return parsedHTML;
 };
