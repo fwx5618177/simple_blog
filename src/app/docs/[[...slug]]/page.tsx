@@ -83,7 +83,7 @@ export default async function MarkdownPage() {
             {parsedHtml}
           </article>
           <footer
-            className={`mt-4 border-t-[1px] border-t-secondary pt-2 flex items-center justify-right`}
+            className={`mt-4 border-t-[1px] border-t-secondary pt-2 flex items-center justify-end`}
           >
             <span>胡言乱语之言</span>
           </footer>
