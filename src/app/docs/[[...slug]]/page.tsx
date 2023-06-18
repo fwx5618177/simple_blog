@@ -55,20 +55,38 @@ export default async function MarkdownPage() {
   });
 
   return (
-    <main className={styles?.main}>
+    <main>
       {isLoading ? (
         <LoadAnime />
       ) : (
         <Paper title={content?.title} time={content?.time} pageSize="sm">
-          <header></header>
           <article
-            className="relative w-full"
+            className={`relative w-full ${styles.articles}`}
             // dangerouslySetInnerHTML={{
             //   __html: content?.content,
             // }}
           >
+            <header>
+              {content?.tags?.map((item, index) => (
+                <a
+                  className={`ml-4 px-4 py-[0.5px] rounded-[6px] text-default text-sm`}
+                  style={{
+                    backgroundColor: item?.color,
+                  }}
+                  key={index}
+                  href={item?.href}
+                >
+                  {item?.name}
+                </a>
+              ))}
+            </header>
             {parsedHtml}
           </article>
+          <footer
+            className={`mt-4 border-t-[1px] border-t-secondary pt-2 flex items-center justify-right`}
+          >
+            <span>胡言乱语之言</span>
+          </footer>
         </Paper>
       )}
     </main>

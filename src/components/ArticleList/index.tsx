@@ -3,18 +3,54 @@
 import { ArticleListDataProps, ArticleListProps } from "../../../types/article";
 import dayjs from "dayjs";
 import ArticlePagination from "../ArticlePagination";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BsFillTagFill, BsCalendarDate } from "react-icons/bs";
 import { articleList } from "@/mock/article.mock";
 import { Pagination } from "../../../types/Pagination";
+import { useQuery } from "react-query";
+import LoadAnime from "../LoadAnime/LoadAnime";
 
 const ArticleList: React.FC<ArticleListProps> = () => {
-  const [data, setData] = useState<ArticleListDataProps[]>([]);
   const [pagination, setPagination] = useState<Pagination>({
     current: 1,
     total: 20,
     pageSize: 6,
   });
+
+  const { data, isLoading } = useQuery<{
+    data: ArticleListDataProps[];
+    total: number;
+    current: number;
+  }>(
+    ["list", pagination],
+    async () => {
+      const response = await fetch("/api/list", {
+        method: "POST",
+        body: JSON.stringify({
+          pagination,
+        }),
+      });
+
+      const { data, total, current } = await response.json();
+
+      return {
+        data,
+        total,
+        current,
+      };
+    },
+    {
+      onSuccess: (res) => {
+        const { total, current } = res;
+
+        setPagination({
+          ...pagination,
+          total,
+          current,
+        });
+      },
+    }
+  );
 
   const handlePagination = (page: number) => {
     setPagination({
@@ -23,26 +59,14 @@ const ArticleList: React.FC<ArticleListProps> = () => {
     });
   };
 
-  const queryData = async () => {
-    const response = await fetch("/api/list");
-    const { data, total, current } = await response.json();
-
-    setData(data);
-    setPagination({
-      ...pagination,
-      total,
-      current,
-    });
-  };
-
-  useEffect(() => {
-    queryData();
-  }, []);
+  if (isLoading) {
+    return <LoadAnime />;
+  }
 
   return (
     <>
       <section className="bg-[#fff] rounded-[6px] min-h-sm">
-        {data?.map((item, index) => (
+        {data?.data?.map((item, index) => (
           <section
             key={index}
             className={`relative w-full ${

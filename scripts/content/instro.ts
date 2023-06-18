@@ -25,7 +25,10 @@ class Instro {
   }
 
   public render() {
-    return marked.parse(this.instro);
+    return marked.parse(this.instro, {
+      mangle: false,
+      headerIds: false,
+    });
   }
 }
 

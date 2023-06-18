@@ -45,5 +45,21 @@
             }
         ],
         "year": "2023"
+    },
+    {
+        "title": "前端的思考",
+        "path": "docs/2023/06/frontRecommand.md",
+        "tags": [
+            {
+                "key": "front",
+                "name": "前端",
+                "color": "#888"
+            },
+            {
+                "key": "summary",
+                "name": "总结",
+                "color": "#4d4d4d"
+            }
+        ]
     }
 ]

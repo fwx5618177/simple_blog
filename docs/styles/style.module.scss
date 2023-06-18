@@ -1,9 +1,51 @@
-.main {
-    h1 {
-        font-size: 2.5em;
-        margin-top: 0;
-        padding-top: 0;
+.articles {
+    line-height: 3rem;
+
+    header {
+        margin: 1.6rem 0;
     }
+
+    // h1::before,
+    // h2::before,
+    // h3::before,
+    // h4::before,
+    // h5::before,
+    // h6::before {
+    //     content: '-';
+    //     left: 0;
+    //     top: 0;
+    // }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-top: .8rem;
+        font-weight: 800;
+    }
+
+    h2 {
+        font-size: 1.6em;
+        margin: .5rem 0;
+        font-weight: 600;
+    }
+
+    li {
+        position: relative;
+        padding-left: 1.6rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #999;
+            border-radius: 50%;
+            top: calc(50% - 5px);
+            left: 0;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .3);
+
+        }
+    }
+
 
     // pre {
     //     position: relative;

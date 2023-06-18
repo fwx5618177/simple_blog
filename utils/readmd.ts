@@ -93,7 +93,10 @@ export async function queryMdDocs(
     return undefined;
   }
   const fileContent = readMD(dirName);
-  const content = marked.parse(fileContent);
+  const content = marked.parse(fileContent, {
+    mangle: false,
+    headerIds: false,
+  });
 
   return {
     ...findData,
