@@ -69,7 +69,7 @@ export default async function MarkdownPage() {
             <header>
               {content?.tags?.map((item, index) => (
                 <a
-                  className={`ml-4 px-4 py-[0.5px] rounded-[6px] text-default text-sm`}
+                  className={`ml-4 px-4 py-2 rounded-[6px] text-default text-sm`}
                   style={{
                     backgroundColor: item?.color,
                   }}
