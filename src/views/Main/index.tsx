@@ -1,9 +1,10 @@
 import ArticlePagination from "@/components/ArticlePagination";
 import ArticlePost from "@/components/ArticlePost";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArticleListDataArticles } from "../../../types/article";
 import { Pagination } from "../../../types/Pagination";
 import { useQuery } from "react-query";
+import LoadAnime from "@/components/LoadAnime/LoadAnime";
 
 const MainPage = () => {
   const [pagination, setPagination] = useState<Pagination>({
@@ -13,8 +14,12 @@ const MainPage = () => {
   });
 
   const { data, isLoading, isError } = useQuery(
-    "home",
-    () => fetch("/api/home").then((res) => res.json()),
+    ["home", pagination?.current, pagination?.pageSize],
+    () =>
+      fetch(
+        "/api/home" +
+          `?pageNumber=${pagination?.current}&pageSize=${pagination?.pageSize}`
+      ).then((res) => res.json()),
     {
       onSuccess: (res) => {
         const { total, current } = res;
@@ -39,11 +44,25 @@ const MainPage = () => {
     });
   };
 
+  useEffect(() => {
+    const { total, current } = data || {};
+
+    if (total && current) {
+      setPagination((prev) => ({
+        ...prev,
+        total,
+        current,
+      }));
+    }
+  }, [data]);
+
+  if (isLoading) {
+    return <LoadAnime />;
+  }
+
   return (
     <>
-      {isLoading ? (
-        <p>Loading</p>
-      ) : isError ? (
+      {isError ? (
         <p>Error occurred while fetching data</p>
       ) : (
         <>

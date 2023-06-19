@@ -25,3 +25,4 @@
 - acorn
 - marked
 - @babel/parse
+- vite: 如何搭建vite生态

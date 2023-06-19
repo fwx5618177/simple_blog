@@ -12,25 +12,32 @@ import { useQuery } from "react-query";
 import LoadAnime from "@/components/LoadAnime/LoadAnime";
 import { DocContentTypes } from "../../../../types/doc";
 
-export default async function MarkdownPage() {
+const MarkdownPage = () => {
   const params = useParams();
 
-  const { data, isLoading } = useQuery("docs", async () => {
-    const result = await fetch("/api/docs", {
-      method: "POST",
-      body: JSON.stringify({
-        path: Array.isArray(params?.slug)
-          ? params?.slug.join("/")
-          : params?.slug,
-      }),
-    });
+  const { data, isLoading } = useQuery(
+    ["docs", params?.slug],
+    async () => {
+      const result = await fetch("/api/docs", {
+        method: "POST",
+        body: JSON.stringify({
+          path: Array.isArray(params?.slug)
+            ? params?.slug.join("/")
+            : params?.slug,
+        }),
+      });
 
-    const data = await result.json();
+      const data = await result.json();
 
-    return data;
-  });
+      return data;
+    },
+    {
+      enabled: !!params?.slug,
+    }
+  );
+  const content: DocContentTypes = useMemo(() => data?.data, [data]);
 
-  const handleNode = (node: DOMNode): any => {
+  const callBackNode = useCallback((node: DOMNode): any => {
     const { name, attribs, children } = node as any;
     if (name === "code") {
       const { class: className } = attribs;
@@ -42,10 +49,7 @@ export default async function MarkdownPage() {
     }
 
     return node;
-  };
-
-  const callBackNode = useCallback(handleNode, []);
-  const content: DocContentTypes = useMemo(() => data?.data, [data]);
+  }, []);
 
   const parsedHtml = useParseHTML({
     html: content?.content as string,
@@ -59,36 +63,45 @@ export default async function MarkdownPage() {
       {isLoading ? (
         <LoadAnime />
       ) : (
-        <Paper title={content?.title} time={content?.time} pageSize="sm">
-          <article
-            className={`relative w-full ${styles.articles}`}
-            // dangerouslySetInnerHTML={{
-            //   __html: content?.content,
-            // }}
-          >
-            <header>
-              {content?.tags?.map((item, index) => (
-                <a
-                  className={`ml-4 px-4 py-2 rounded-[6px] text-default text-sm`}
-                  style={{
-                    backgroundColor: item?.color,
-                  }}
-                  key={index}
-                  href={item?.href}
-                >
-                  {item?.name}
-                </a>
-              ))}
-            </header>
-            {parsedHtml}
-          </article>
-          <footer
-            className={`mt-4 border-t-[1px] border-t-secondary pt-2 flex items-center justify-end`}
-          >
-            <span>胡言乱语之言</span>
-          </footer>
-        </Paper>
+        <>
+          <div className="text-secondary">
+            <span>
+              <a href="/" className="hover:text-info hover:underline">
+                home
+              </a>
+              {` << ${content?.title}`}
+            </span>
+          </div>
+          <Paper title={content?.title} time={content?.time} pageSize="sm">
+            <article
+              className={`relative w-full min-h-[480px] ${styles.articles}`}
+            >
+              <header>
+                {content?.tags?.map((item, index) => (
+                  <a
+                    className={`ml-4 px-4 py-2 rounded-[6px] text-default text-sm`}
+                    style={{
+                      backgroundColor: item?.color,
+                    }}
+                    key={index}
+                    href={item?.href}
+                  >
+                    {item?.name}
+                  </a>
+                ))}
+              </header>
+              {parsedHtml}
+            </article>
+            <footer
+              className={`mt-4 border-t-[1px] border-t-secondary pt-2 flex items-center justify-end`}
+            >
+              <span>胡言乱语之言</span>
+            </footer>
+          </Paper>
+        </>
       )}
     </main>
   );
-}
+};
+
+export default MarkdownPage;
