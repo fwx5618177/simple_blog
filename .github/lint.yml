@@ -1,0 +1,35 @@
+name: Lint Check
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.0.0'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check package-lock.json changes
+        run: |
+          if [ -n "$(git diff --name-only ${{ github.base_ref }}..${{ github.head_ref }} | grep package-lock.json)" ]; then
+            echo "Changes detected in package-lock.json"
+            exit 1
+          else
+            echo "No changes detected in package-lock.json"
+          fi

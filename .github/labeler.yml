@@ -1,0 +1,14 @@
+# https://github.com/srvaroa/labeler
+version: 1
+issues: false
+labels:
+  - label: "XS"
+    size: { below: 10 }
+  - label: "S"
+    size: { above: 10, below: 50 }
+  - label: "M"
+    size: { above: 50, below: 200 }
+  - label: "L"
+    size: { above: 200, below: 400 }
+  - label: "XL"
+    size: { above: 400 }
