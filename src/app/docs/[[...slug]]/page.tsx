@@ -9,6 +9,7 @@ import CodeRender from "@/components/Code/CodeRender";
 import { DOMNode } from "html-react-parser";
 import { useParams } from "next/navigation";
 import { useQuery } from "react-query";
+import lodash from "lodash";
 import LoadAnime from "@/components/LoadAnime/LoadAnime";
 import { DocContentTypes } from "../../../../types/doc";
 
@@ -39,20 +40,34 @@ const MarkdownPage = () => {
 
   const callBackNode = useCallback((node: DOMNode): any => {
     const { name, attribs, children } = node as any;
+
     if (name === "code") {
-      const { class: className } = attribs;
+      try {
+        if (lodash.isEqual({}, attribs)) {
+          return {
+            ...node,
+            name: "span",
+          };
+        }
 
-      const language = className?.split("-")[1];
-      const code = children?.[0]?.data;
+        const { class: className } = attribs;
 
-      return <CodeRender code={code} language={language} />;
+        const language = className?.split("-")[1];
+        const code = children?.[0]?.data;
+
+        return <CodeRender code={code} language={language} />;
+      } catch (err) {
+        console.error(err);
+
+        return children;
+      }
     }
 
     return node;
   }, []);
 
   const parsedHtml = useParseHTML({
-    html: content?.content as string,
+    html: content?.content satisfies string,
     options: {
       replace: callBackNode,
     },

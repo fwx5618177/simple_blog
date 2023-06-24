@@ -121,5 +121,21 @@
                 "color": "#4d4d4d"
             }
         ]
+    },
+    {
+        "title": "如何搭建HTTP服务器调用DLL库",
+        "path": "docs/2023/06/node_dll.md",
+        "tags": [
+            {
+                "key": "node",
+                "name": "node",
+                "color": "#4d4d4d"
+            },
+            {
+                "key": "dll",
+                "name": "DLL",
+                "color": "#4d4d4d"
+            }
+        ]
     }
 ]
