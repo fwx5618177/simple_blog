@@ -137,5 +137,16 @@
                 "color": "#4d4d4d"
             }
         ]
+    },
+    {
+        "title": "编译原理的思考的扩展",
+        "path": "docs/2023/06/compile.md",
+        "tags": [
+            {
+                "key": "compile",
+                "name": "compile",
+                "color": "#4d4d4d"
+            }
+        ]
     }
 ]
