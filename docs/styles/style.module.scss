@@ -84,3 +84,19 @@
     //     }
     // }
 }
+
+.highlight {
+    margin: 0 2px 0 2px;
+    padding: 5px 10px;
+    background-color: #444;
+    border-radius: 6px;
+
+    color: #ff0077;
+    text-align: center;
+    text-transform: lowercase;
+    cursor: pointer;
+
+    &::selection {
+        user-select: none;
+    }
+}

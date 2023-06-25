@@ -6,6 +6,7 @@ import Paper from "@/components/Paper";
 import useParseHTML from "@/hooks/ParseHTML";
 import React from "react";
 import CodeRender from "@/components/Code/CodeRender";
+import Highlighter from "react-highlight-words";
 import { DOMNode } from "html-react-parser";
 import { useParams } from "next/navigation";
 import { useQuery } from "react-query";
@@ -42,12 +43,28 @@ const MarkdownPage = () => {
     const { name, attribs, children } = node as any;
 
     if (name === "code") {
+      console.log({
+        node,
+      });
       try {
         if (lodash.isEqual({}, attribs)) {
-          return {
-            ...node,
-            name: "span",
-          };
+          // return {
+          //   ...node,
+          //   name: "span",
+          // };
+
+          if (!(node as any)?.data) {
+            const data: string = (node as any)?.children?.[0]?.data;
+
+            return (
+              <Highlighter
+                highlightClassName={styles.highlight}
+                searchWords={[data]}
+                autoEscape={true}
+                textToHighlight={data}
+              />
+            );
+          }
         }
 
         const { class: className } = attribs;
