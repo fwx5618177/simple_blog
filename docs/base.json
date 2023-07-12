@@ -148,5 +148,16 @@
                 "color": "#4d4d4d"
             }
         ]
+    },
+    {
+        "title": "未来的思考",
+        "path": "docs/2023/07/future.md",
+        "tags": [
+            {
+                "key": "future",
+                "name": "future note",
+                "color": "#8501cc"
+            }
+        ]
     }
 ]
