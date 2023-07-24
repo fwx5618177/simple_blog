@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@next/swc-darwin-arm64": "^13.4.4",
-    "@types/marked": "^5.0.0",
+    "@types/marked": "^5.0.1",
     "@types/node": "20.2.4",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.7",
@@ -23,7 +23,7 @@
     "fs": "0.0.1-security",
     "html-react-parser": "^4.0.0",
     "lodash": "^4.17.21",
-    "marked": "^5.0.4",
+    "marked": "^5.1.1",
     "marked-gfm-heading-id": "^3.0.4",
     "marked-mangle": "^1.0.1",
     "next": "13.4.9",
