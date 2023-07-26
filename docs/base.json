@@ -159,5 +159,21 @@
                 "color": "#8501cc"
             }
         ]
+    },
+    {
+        "title": "zig 的错误处理函数",
+        "path": "docs/2023/07/zigHandleError.md",
+        "tags": [
+            {
+                "key": "zig",
+                "name": "zig note",
+                "color": "#8501cc"
+            },
+            {
+                "key": "Handle Error",
+                "name": "error",
+                "color": "#3d3d3d"
+            }
+        ]
     }
 ]
