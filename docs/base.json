@@ -175,5 +175,21 @@
                 "color": "#3d3d3d"
             }
         ]
+    },
+    {
+        "title": "[Rust]-如何设计 Mail Send 的基础库",
+        "path": "docs/2023/07/rust_HowtoDesignMailSend.md",
+        "tags": [
+            {
+                "key": "rust",
+                "name": "rust note",
+                "color": "#8501cc"
+            },
+            {
+                "key": "smtp",
+                "name": "smtp",
+                "color": "#3d3d3d"
+            }
+        ]
     }
 ]
