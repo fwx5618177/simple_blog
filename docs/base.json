@@ -191,5 +191,21 @@
                 "color": "#3d3d3d"
             }
         ]
+    },
+    {
+        "title": "[Rust]-WAV 音频命令行工具`zrtstr`解析",
+        "path": "docs/2023/07/rust_wav_process.md",
+        "tags": [
+            {
+                "key": "rust",
+                "name": "rust note",
+                "color": "#8501cc"
+            },
+            {
+                "key": "wav",
+                "name": "wav",
+                "color": "#3d3d3d"
+            }
+        ]
     }
 ]
