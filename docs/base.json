@@ -207,5 +207,21 @@
                 "color": "#3d3d3d"
             }
         ]
+    },
+    {
+        "title": "Web3】Remix(Ethereum IDE) 插件之 solidity-uml-gen，动手搓基建",
+        "path": "docs/2023/08/remix_plugin_explain.md",
+        "tags": [
+            {
+                "key": "remix",
+                "name": "Remix note",
+                "color": "#8501cc"
+            },
+            {
+                "key": "solidity",
+                "name": "Solidity",
+                "color": "#3d3d3d"
+            }
+        ]
     }
 ]
