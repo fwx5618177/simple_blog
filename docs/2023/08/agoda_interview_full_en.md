@@ -1,6 +1,6 @@
 # High Concurrency: What I Learned from a System Design Interview with Agoda
 
-Share an interview with Senior Full Stack Engineer. For my pool English, it's a tough time for my interviewer.
+Share an interview with Senior Full Stack Engineer. For my limited oral english, it's a tough time for my interviewer.
 I knew I was in for a challenge when I stepped into the room of the interview. It's round 2.
 As I embarked on the journey of interviewing for the Senior Full Stack position, I was well aware that the path ahead would be demanding and intricate. The role's emphasis on depth and breadth across both front-end and back-end technologies meant that the interview process would naturally elevate complexity and design expectations.
 This reflection delves into the immersive experience of my Senior Full Stack interview, offering insights into the heightened technical demands and the intricate design aspects that shaped the assessment. Navigating through this process not only tested my technical proficiency but also underscored the significance of well-rounded expertise at a senior level.
