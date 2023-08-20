@@ -19,6 +19,7 @@ export type ArticleListDataArticles = {
   desc?: string;
   link?: string;
   blockquote?: string;
+  type?: string
 };
 
 export type ArticleListDataTags = {
