@@ -209,7 +209,23 @@
         ]
     },
     {
-        "title": "Web3】Remix(Ethereum IDE) 插件之 solidity-uml-gen，动手搓基建",
+        "title": "前端富文本编辑器关于 OP 与 CRDT 的总结",
+        "path": "docs/2023/07/richText_OP_CRDT.md",
+        "tags": [
+            {
+                "key": "OP",
+                "name": "OP",
+                "color": "#8501cc"
+            },
+            {
+                "key": "CRDT",
+                "name": "CRDT",
+                "color": "#3d3d3d"
+            }
+        ]
+    },
+    {
+        "title": "【Web3】Remix(Ethereum IDE) 插件之 solidity-uml-gen，动手搓基建",
         "path": "docs/2023/08/remix_plugin_explain.md",
         "tags": [
             {
@@ -223,5 +239,55 @@
                 "color": "#3d3d3d"
             }
         ]
+    },
+    {
+        "title": "【中文】高并发：从一次 Agoda 系统设计面试中的收获",
+        "path": "docs/2023/08/agoda_interview_full_zh.md",
+        "tags": []
+    },
+    {
+        "title": "【En】High Concurrency: What I Learned from a System Design Interview with Agoda",
+        "path": "docs/2023/08/agoda_interview_full_en.md",
+        "tags": []
+    },
+    {
+        "title": "【JP】高並行性: アゴダのシステムデザイン面接から学んだこと",
+        "path": "docs/2023/08/agoda_interview_full_jp.md",
+        "tags": []
+    },
+    {
+        "title": "【Fr】Haute Concurrency : Ce que j'ai appris d'un entretien sur la conception de système avec Agoda",
+        "path": "docs/2023/08/agoda_interview_full_fr.md",
+        "tags": []
+    },
+    {
+        "title": "【中文】前端架构-现代API请求中的设计",
+        "path": "docs/2023/08/Architect_api_fetch_zh.md",
+        "tags": []
+    },
+    {
+        "title": "【En】Simple Introduction: Efficient Data Fetching in Frontend Applications",
+        "path": "docs/2023/08/Architect_api_fetch_en.md",
+        "tags": []
+    },
+    {
+        "title": "【Jp】フロントエンドアーキテクチャ - 現代のAPIリクエストデザイン",
+        "path": "docs/2023/08/Architect_api_fetch_jp.md",
+        "tags": []
+    },
+    {
+        "title": "【Cn】【Go】Minio源码解析（一）——入口函数、位腐败算法、服务器入口点",
+        "path": "docs/2023/08/Minio_Source_Instro_zh.md",
+        "tags": []
+    },
+    {
+        "title": "【En】[Go] MinIO Source Code Analysis (Part 1) - Entry Function, Bitrot Algorithm, Server Entry Points",
+        "path": "docs/2023/08/Minio_Source_Instro_en.md",
+        "tags": []
+    },
+    {
+        "title": "【Jp】【Go】Minioソースコード解析（1） - エントリポイント、ビット腐敗アルゴリズム、サーバーエントリーポイント",
+        "path": "docs/2023/08/Minio_Source_Instro_jp.md",
+        "tags": []
     }
 ]
