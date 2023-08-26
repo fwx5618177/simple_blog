@@ -80,11 +80,11 @@ MinIO は、高性能で S3 互換のオブジェクトストレージを提供�
 
 1. セット内のディスクを再配置し、オブジェクトのキーに対して CRC32 ハッシュを実行して分布関係を確立します。
 
-![Reordering Disks](./reposting-Minio_Exploration/ReorderingDisks.webp)
+![Reordering Disks](./reposting-Minio_Exploration/reorderingDisk.webp)
 
-2. オブジェクトのサイズに基づいて EC（イレイションコード）計算のバッファサイズを決定します。最大サイズは 1MB で、1 つのブロックサイズに相当します。
+1. オブジェクトのサイズに基づいて EC（イレイションコード）計算のバッファサイズを決定します。最大サイズは 1MB で、1 つのブロックサイズに相当します。
 
-3. 指定されたバッファサイズで EC のデータブロックとパリティブロックを構築します。
+2. 指定されたバッファサイズで EC のデータブロックとパリティブロックを構築します。
 
 ![Block Size](./reposting-Minio_Exploration/blockSize.webp)
 

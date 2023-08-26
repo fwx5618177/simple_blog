@@ -80,11 +80,11 @@ In fact, during pool selection, it already calculates which set the object will 
 
 1. Reordering Disks in the set, determined by performing a CRC32 hash on the object's key to establish distribution relationships.
 
-![Reordering Disks](./reposting-Minio_Exploration/ReorderingDisks.webp)
+![Reordering Disks](./reposting-Minio_Exploration/reorderingDisk.webp)
 
-2. Determining the buffer size for EC (Erasure Code) calculations based on the object's size, with a maximum size of 1MB, equivalent to one block size.
+1. Determining the buffer size for EC (Erasure Code) calculations based on the object's size, with a maximum size of 1MB, equivalent to one block size.
 
-3. Building data blocks and parity blocks for EC, as mentioned earlier in the specified buffer size.
+2. Building data blocks and parity blocks for EC, as mentioned earlier in the specified buffer size.
 
 ![Block Size](./reposting-Minio_Exploration/blockSize.webp)
 
