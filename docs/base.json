@@ -289,5 +289,10 @@
         "title": "【Jp】【Go】Minioソースコード解析（1） - エントリポイント、ビット腐敗アルゴリズム、サーバーエントリーポイント",
         "path": "docs/2023/08/Minio_Source_Instro_jp.md",
         "tags": []
+    },
+    {
+        "title": "【Typescript】Monaco 源码分析与介绍",
+        "path": "docs/2023/08/monaco_instro_zh.md",
+        "tags": []
     }
 ]
