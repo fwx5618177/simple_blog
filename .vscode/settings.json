@@ -1,5 +1,5 @@
 {
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "cSpell.words": ["bignumber", "Instro", "readmd", "tailwindcss"],
   "compile-hero.disable-compile-files-on-did-save-code": false
 }
