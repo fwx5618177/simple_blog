@@ -308,6 +308,24 @@ Object pinning 是一个内存管理技术，尤其在带有垃圾收集器（GC
 为了解决内存碎片化的问题，标记-清除有时与压缩（compaction）结合，创建了标记-清除-压缩（Mark-Sweep-Compact）策略。在这种策略中，清除阶段后，存活的对象会被移动到堆的一端，消除空闲空间之间的碎片。然而，这引入了移动的复杂性，并可能影响性能。
 
 
+### Heap space and allocation strategy
+
+1. Heap entire: \( heap = (M, S, (H_3, ..., H_{12})) \)
+- M: special sub-heap for large objects
+- S: free segment pool, set of unused segments
+- H: sub-heap for \( 2^i \) byte allocation blocks
+
+2. Sub heap: \( H_i = (SegList_i, P_i) \)
+- SegList: list of segments
+- P: allocation pointer for sub-heap \( H_i \)
+
+3. Segment: \( S_i = (Count_i, Blks_i, BitMap_i,  Twork_i) \)
+- Count: allocated blocks
+- Blks: 2^i的分配区块
+- BitMap: 2^i的分配区块的位图树
+- Twork: 2^i的分配区块的工作区域, 侦测活对象
+
+
 ## Reference
 
 1. [An Efficient Non-Moving Garbage Collector for Functional Languages](https://www.pllab.riec.tohoku.ac.jp/papers/icfp2011UenoOhoriOtomoAuthorVersion.pdf). Author: {Katsuhiro Ueno, Atsushi Ohori}[Research Institute of Electrical Communication]
