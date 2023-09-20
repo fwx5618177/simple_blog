@@ -1,6 +1,6 @@
 # Express 源码解析
 
-Express 是一个简单的 Node 框架。
+Express 是一个简单的 Node 框架。本文不涉及源码处理，近涉及设计思路。
 
 目录：
 
