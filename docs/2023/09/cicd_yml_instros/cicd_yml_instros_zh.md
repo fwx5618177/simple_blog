@@ -434,7 +434,7 @@ name: Release Workflow
 on:
   push:
     branches:
-      - master # Trigger the workflow on push to main branch
+      - master # Trigger the workflow on push to master branch
 
 jobs:
   release:
@@ -483,20 +483,21 @@ jobs:
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "New Release Published"
-          body: "Check out the new release on GitHub!"
+          subject: New Release Published for ${{ github.repository }}
+          body: |
+            <h1>New Release Published</h1>
+            <p>A new release has been published on <a href="${{ github.event.repository.html_url }}/releases/tag/${{ github.event.release.tag_name }}">GitHub</a>.</p>
+            <p>Here are the details:</p>
+            <ul>
+              <li><b>Tag:</b> ${{ github.event.release.tag_name }}</li>
+              <li><b>Name:</b> ${{ github.event.release.name }}</li>
+            </ul>
+            <p>You can view the full changelog <a href="${{ github.event.repository.html_url }}/blob/master/CHANGELOG.md">here</a>.</p>
           to: ${{ secrets.EMAIL_TO }}
           from: ${{ secrets.EMAIL_FROM }}
-          content_type: text/plain
+          content_type: text/html
           attachments: |
             ./CHANGELOG.md
-            ./package.json
-            ./package-lock.json
-            ./pnpm-lock.yaml
-            ./pnpm-workspace.yaml
-            ./pnpmfile.js
-            ./README.md
-            ./yarn.lock
 
       # - name: Notify on Slack or Discord # Optionally notify team members on release, customize as per your needs
       #   if: success() # Only notify if the previous steps were successful
