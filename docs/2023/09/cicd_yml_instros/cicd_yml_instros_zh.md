@@ -469,6 +469,9 @@ jobs:
       - name: Build Project # Optionally build your project, if required
         run: pnpm run build
 
+      - name: Make set-version.sh executable
+        run: chmod +x ./set-version.sh
+
       - name: Release and Publish
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
