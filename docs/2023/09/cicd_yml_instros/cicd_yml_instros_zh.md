@@ -9,6 +9,7 @@
 4. CodeQL 代码扫描
 5. Docker 的构建、测试、代码覆盖率收集和发布 hub 操作
 6. 矩阵排除、多个操作系统上进行构建和测试，并在成功后收集代码覆盖率数据、发布到 GitHub Releases
+7. 发布到 NPM, 更新 package.json, 创建 release 代码, 发送邮件, 发送 slack
 
 ## 1. 测试的覆盖率
 
@@ -421,4 +422,88 @@ deploy:
 notifications:
   email:
     on_success: never
+```
+
+## 7. 发布到 NPM, 更新 package.json, 创建 release 代码, 发送邮件, 发送 slack
+
+`semantic-release.yml` 文件中的配置如下:
+
+```yml
+name: Release Workflow
+
+on:
+  push:
+    branches:
+      - master # Trigger the workflow on push to main branch
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.TOKEN }}
+          fetch-depth: 0 # Fetch all history so that semantic-release can generate changelogs correctly
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20.6.1
+
+      - name: Setup Pnpm
+        run: npm install -g pnpm@latest
+
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Project # Optionally build your project, if required
+        run: pnpm run build
+
+      - name: Release and Publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm run release
+
+      - name: Send Email Notification
+        if: success() # Only send email if the previous steps were successful
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "New Release Published"
+          body: "Check out the new release on GitHub!"
+          to: ${{ secrets.EMAIL_TO }}
+          from: ${{ secrets.EMAIL_FROM }}
+          content_type: text/plain
+          attachments: |
+            ./CHANGELOG.md
+            ./package.json
+            ./package-lock.json
+            ./pnpm-lock.yaml
+            ./pnpm-workspace.yaml
+            ./pnpmfile.js
+            ./README.md
+            ./yarn.lock
+
+      # - name: Notify on Slack or Discord # Optionally notify team members on release, customize as per your needs
+      #   if: success() # Only notify if the previous steps were successful
+      #   uses: 8398a7/action-slack@v3
+      #   with:
+      #       status: custom
+      #       fields: job,ref
+      #   env:
+      #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
