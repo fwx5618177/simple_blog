@@ -469,14 +469,15 @@ jobs:
       - name: Build Project # Optionally build your project, if required
         run: pnpm run build
 
-      - name: Make set-version.sh executable
-        run: chmod +x ./set-version.sh
-
       - name: Release and Publish
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm run release
+
+      - name: Get version from package.json
+        id: version
+        run: echo "::set-output name=version::$(node -p "require('./package.json').version")"
 
       - name: Send Email Notification
         if: success() # Only send email if the previous steps were successful
@@ -489,11 +490,11 @@ jobs:
           subject: New Release Published for ${{ github.repository }}
           body: |
             <h1>New Release Published</h1>
-            <p>A new release has been published on <a href="${{ github.event.repository.html_url }}/releases/tag/${{ github.event.release.tag_name }}">GitHub</a>.</p>
+            <p>A new release has been published on <a href="${{ github.event.repository.html_url }}/releases/tag/v${{ env.RELEASE_VERSION }}">GitHub</a>.</p>
             <p>Here are the details:</p>
             <ul>
-              <li><b>Tag:</b> ${{ github.event.release.tag_name }}</li>
-              <li><b>Name:</b> ${{ github.event.release.name }}</li>
+              <li><b>Tag:</b> v${{ env.RELEASE_VERSION }}</li>
+              <li><b>Name:</b> Operculum</li>
             </ul>
             <p>You can view the full changelog <a href="${{ github.event.repository.html_url }}/blob/master/CHANGELOG.md">here</a>.</p>
           to: ${{ secrets.EMAIL_TO }}
@@ -501,13 +502,19 @@ jobs:
           content_type: text/html
           attachments: |
             ./CHANGELOG.md
+      - name: Notify on Discord
+        if: success()
+        run: |
+          DISCORD_WEBHOOK_URL=${{ secrets.DISCORD_WEBHOOK_URL }}
+          MESSAGE="Operculum: NEW Release: v${{ steps.version.outputs.version }} is published! Check it out at ${{ github.event.repository.html_url }}/blob/master/CHANGELOG.md"
+          curl -H "Content-Type: application/json" -X POST -d '{"content": "'"$MESSAGE"'"}' $DISCORD_WEBHOOK_URL
 
-      # - name: Notify on Slack or Discord # Optionally notify team members on release, customize as per your needs
-      #   if: success() # Only notify if the previous steps were successful
-      #   uses: 8398a7/action-slack@v3
-      #   with:
-      #       status: custom
-      #       fields: job,ref
-      #   env:
-      #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Notify on Slack or Discord # Optionally notify team members on release, customize as per your needs
+        if: success() # Only notify if the previous steps were successful
+        uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: job,ref
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
