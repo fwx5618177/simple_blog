@@ -70,12 +70,12 @@ class DocFiles {
         "YYYYMMDD"
       )}${suffix}.md`;
       const filePath = path.join(mdDir, fileName);
-
+      const locationPath = path.relative(process.cwd(), filePath);
       fs.writeFileSync(filePath, `# ${responses.title}\n\n${responses.tags}`);
 
       baseJson.push({
-        title: responses.title,
-        location: filePath,
+        title: `【${language}】responses.title`,
+        path: locationPath,
         tags: responses.tags.split(","),
       });
     });
