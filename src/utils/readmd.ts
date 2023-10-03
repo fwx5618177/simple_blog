@@ -1,11 +1,11 @@
 import { readFileSync } from "fs";
 import { marked } from "marked";
-import { BASE_OUT_FILE_PATH } from "../constants/conf";
+import { BASE_OUT_FILE_PATH } from "../../constants/conf";
 import {
   ArticleListDataArticles,
   ArticleListDataProps,
-} from "../types/article";
-import { DocContentTypes, DocDir } from "../types/doc";
+} from "../../types/article";
+import { DocContentTypes, DocDir } from "../../types/doc";
 
 export const readMD = (md: string) => {
   try {

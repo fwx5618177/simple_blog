@@ -5,7 +5,7 @@ import {
   BASE_IN_FILE_PATH,
   BASE_OUT_FILE,
   BASE_OUT_FILE_PATH,
-} from "../constants/conf";
+} from "../../constants/conf";
 
 export const readDir = (path = BASE_DIR) => {
   try {

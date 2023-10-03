@@ -1,5 +1,5 @@
 import { BASE_OUT_FILE_PATH, BASE_IN_FILE_PATH } from "../constants/conf";
-import { writeToFile, readFile } from "../utils/readFile";
+import { writeToFile, readFile } from "../src/utils/readFile";
 import { statSync } from "fs";
 import Instro from "./content/instro";
 

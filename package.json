@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "doc": "ts-node -r tsconfig-paths/register ./scripts/bin.ts"
+    "doc": "ts-node -r tsconfig-paths/register ./scripts/bin.ts",
+    "clean:dist": "rimraf ./dist src/**/dist",
+    "clean:next": "rimraf .next/",
+    "clean": "rimraf node_modules package-lock.json yarn.lock pnpm-lock.yaml"
   },
   "dependencies": {
     "@next/swc-darwin-arm64": "^13.4.4",
@@ -46,6 +49,7 @@
     "@types/react-highlight-words": "^0.16.4",
     "@types/styled-components": "^5.1.26",
     "dayjs": "^1.11.7",
+    "rimraf": "^5.0.5",
     "styled-components": "^5.3.11",
     "ts-node": "^10.9.1"
   }

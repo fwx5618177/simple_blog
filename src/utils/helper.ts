@@ -1,5 +1,5 @@
-import { ALERT_SEVERITY, Theme } from "../types/alert";
-import { PaperPageSize } from "../types/paper";
+import { ALERT_SEVERITY, Theme } from "../../types/alert";
+import { PaperPageSize } from "../../types/paper";
 
 export const NotifyColorEnum = {
   [ALERT_SEVERITY.SUCCESS]: "success",

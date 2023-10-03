@@ -1,7 +1,7 @@
 "use server";
 
 import { NextRequest, NextResponse } from "next/server";
-import { queryMdDocs } from "../../../../utils/readmd";
+import { queryMdDocs } from "@/utils/readmd";
 
 type Payload = {
   path: string;

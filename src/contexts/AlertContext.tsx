@@ -13,7 +13,7 @@ import {
   RemoveAlert,
   SetAlert,
 } from "../../types/alert";
-import { getKey } from "../../utils/helper";
+import { getKey } from "../utils/helper";
 import Snack from "@/components/Notify/Snack";
 import NotifyBase from "@/components/Notify/NotifyBase";
 

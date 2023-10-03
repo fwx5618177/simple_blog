@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import Paper from "../Paper";
 import { PaperProps } from "../../../types/paper";
-import { getContentSize } from "../../../utils/helper";
+import { getContentSize } from "../../utils/helper";
 
 const ArticlePost: FC<
   PaperProps & {

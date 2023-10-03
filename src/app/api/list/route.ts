@@ -2,7 +2,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { BigNumber } from "bignumber.js";
-import { queryDocs } from "../../../../utils/readmd";
+import { queryDocs } from "@/utils/readmd";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);

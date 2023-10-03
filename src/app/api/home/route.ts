@@ -1,7 +1,7 @@
 "use server";
 
 import { NextRequest, NextResponse } from "next/server";
-import { queryDesc } from "../../../../utils/readmd";
+import { queryDesc } from "@/utils/readmd";
 import dayjs from "dayjs";
 import { BigNumber } from "bignumber.js";
 

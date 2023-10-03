@@ -2,7 +2,7 @@ import { FC } from "react";
 import { PaperProps } from "../../../types/paper";
 import dayjs from "dayjs";
 import { BsCalendarDate } from "react-icons/bs";
-import { getContentSize } from "../../../utils/helper";
+import { getContentSize } from "../../utils/helper";
 
 const Paper: FC<PaperProps> = ({
   title = "title",

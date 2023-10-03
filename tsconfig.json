@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "ES2016",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "outDir": "./dist/",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,7 +21,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/styles/*": ["./src/styles/*"]
+      "@/styles/*": ["./src/styles/*"],
+      "@/utils": ["./src/utils/*"]
     }
   },
   "include": [
