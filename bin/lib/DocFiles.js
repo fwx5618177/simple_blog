@@ -21,31 +21,65 @@ class DocFiles {
     const responses = await inquirer.prompt([
       { type: "input", name: "fileName", message: "File name?" },
       { type: "input", name: "title", message: "Doc title?" },
-      { type: "input", name: "tags", message: "Tags?" },
+      {
+        type: "input",
+        name: "tags",
+        message: "Tags? separator is (,), like: zk,know, so on",
+      },
+      {
+        type: "confirm",
+        name: "createDir",
+        message: "Create a new directory?",
+      },
+      {
+        type: "input",
+        name: "dirName",
+        message: "Directory name?",
+        default: "default",
+        when: (answers) => answers.createDir,
+      },
+      {
+        type: "confirm",
+        name: "isMultilingual",
+        message: "Is the document multilingual?",
+      },
+      {
+        type: "checkbox",
+        name: "languages",
+        message: "Select languages",
+        choices: ["zh", "jp", "en", "fr"],
+        when: (answers) => answers.isMultilingual,
+      },
     ]);
 
     const date = new Date();
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
-    const dir = path.join(__dirname, `docs/${year}/${month}`);
+    const dir = path.join(__dirname, "../../", `docs/${year}/${month}`);
+    const mdDir = responses.dirName ? path.join(dir, responses.dirName) : dir;
+    const languages = responses.isMultilingual ? responses.languages : [""];
+    const baseJsonPath = path.join(__dirname, "../../docs/base.json");
 
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
+    if (!fs.existsSync(mdDir)) {
+      fs.mkdirSync(mdDir, { recursive: true });
     }
 
-    const filePath = path.join(
-      dir,
-      `${responses.fileName}_${dayjs().format("YYYYMMDD")}.md`
-    );
-    fs.writeFileSync(filePath, `# ${responses.fileName}\n\n${responses.tags}`);
+    languages.forEach((language) => {
+      const suffix = language ? `_${language}` : "";
+      const fileName = `${responses.fileName}_${dayjs().format(
+        "YYYYMMDD"
+      )}${suffix}.md`;
+      const filePath = path.join(mdDir, fileName);
 
-    const baseJsonPath = path.join(__dirname, "docs/base.json");
+      fs.writeFileSync(filePath, `# ${responses.title}\n\n${responses.tags}`);
 
-    baseJson.push({
-      title: responses.title,
-      location: filePath,
-      tags: responses.tags.split(","),
+      baseJson.push({
+        title: responses.title,
+        location: filePath,
+        tags: responses.tags.split(","),
+      });
     });
+
     fs.writeFileSync(baseJsonPath, JSON.stringify(baseJson, null, 2));
     console.log("File created successfully!");
   }
