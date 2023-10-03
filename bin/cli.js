@@ -58,4 +58,9 @@ program
     console.log("Uploading files...");
   });
 
+if (process.argv.length < 1) {
+  program.outputHelp();
+  process.exit(0);
+}
+
 program.parse(process.argv);
