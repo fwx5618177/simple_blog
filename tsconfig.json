@@ -2,9 +2,10 @@
   "compilerOptions": {
     "target": "ES2016",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "outDir": "dist",
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,

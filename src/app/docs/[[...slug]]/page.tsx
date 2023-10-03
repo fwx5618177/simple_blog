@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useMemo } from "react";
-import styles from "docs/styles/style.module.scss";
+import styles from "./index.module.scss";
 import Paper from "@/components/Paper";
 import useParseHTML from "@/hooks/ParseHTML";
 import React from "react";
