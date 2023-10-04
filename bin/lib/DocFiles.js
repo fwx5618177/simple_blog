@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import fs from "fs";
 import dayjs from "dayjs";
 import baseJson from "../../docs/base.json" assert { type: "json" };
+import chalk from "chalk";
 
 // 获取当前文件的 URL
 const currentFileURL = import.meta.url;
@@ -16,6 +17,49 @@ const __dirname = dirname(currentFilePath);
 
 class DocFiles {
   constructor() {}
+
+  fileList() {
+    return fs.readdirSync(path.join(__dirname, "../../docs"));
+  }
+
+  async deleteFile() {
+    const list = this.fileList();
+
+    const responses = await inquirer.prompt([
+      {
+        type: "confirm",
+        name: "confirmDelete",
+        message: `Are you sure you want to delete file?`,
+      },
+      {
+        type: "list",
+        name: "file",
+        message: "Please select a template file:",
+        choices: list,
+        when: (answers) => answers.confirmDelete,
+        validate: (input) => {
+          if (input.trim() === "") return "The file name cannot be empty!";
+          return true;
+        },
+      },
+    ]);
+
+    // todo: delete file
+  }
+
+  async Check() {
+    baseJson.forEach((file) => {
+      if (!fs.existsSync(file.path)) {
+        console.log(
+          chalk.bgRed(
+            `Error: File ${file.title} does not exist at ${file.path}`
+          )
+        );
+      }
+    });
+
+    console.log(chalk.greenBright("Check completed!"));
+  }
 
   async createFile() {
     const responses = await inquirer.prompt([

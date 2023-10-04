@@ -33,20 +33,17 @@ program
   });
 
 program
+  .command("delete")
+  .description(`Delete the file from base.json and docs files.`)
+  .action(async () => {
+    await main.getPlugin("docFiles").deleteFile();
+  });
+
+program
   .command("check")
   .description("Check if the base.json and docs are matching.")
-  .action(() => {
-    const baseJsonPath = path.join(__dirname, "docs/base.json");
-    const baseJson = require(baseJsonPath);
-
-    baseJson.forEach((file) => {
-      if (!fs.existsSync(file.location)) {
-        console.log(
-          `Error: File ${file.title} does not exist at ${file.location}`
-        );
-      }
-    });
-    console.log("Check completed.");
+  .action(async () => {
+    await main.getPlugin("docFiles").Check();
   });
 
 program
