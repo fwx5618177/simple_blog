@@ -24,7 +24,8 @@ class DocFiles {
       {
         type: "input",
         name: "tags",
-        message: "Tags? separator is (,), like: zk,know, so on",
+        message: "Tags? separator is (,), like: zk,know, so on:",
+        default: "none",
       },
       {
         type: "confirm",
@@ -41,6 +42,7 @@ class DocFiles {
       {
         type: "confirm",
         name: "isMultilingual",
+        when: (answers) => answers.createDir,
         message: "Is the document multilingual?",
       },
       {
@@ -56,7 +58,7 @@ class DocFiles {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const dir = path.join(__dirname, "../../", `docs/${year}/${month}`);
-    const mdDir = responses.dirName ? path.join(dir, responses.dirName) : dir;
+    const mdDir = responses.createDir ? path.join(dir, responses.dirName) : dir;
     const languages = responses.isMultilingual ? responses.languages : [""];
     const baseJsonPath = path.join(__dirname, "../../docs/base.json");
 
