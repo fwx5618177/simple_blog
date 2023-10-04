@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 import chalk from "chalk";
 import pkg from "../package.json" assert { type: "json" };
-import Main from "./lib/main.js";
+import Main from "./lib/main.mjs";
 
 const main = new Main();
 

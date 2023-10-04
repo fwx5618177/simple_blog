@@ -1,4 +1,4 @@
-import DocFiles from "./DocFiles.js";
+import DocFiles from "./DocFiles.mjs";
 
 class Main {
   plugins = {

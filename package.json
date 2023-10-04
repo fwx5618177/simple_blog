@@ -5,14 +5,13 @@
   "bin": {
     "blog": "./bin/cli.js"
   },
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "doc": "ts-node -r tsconfig-paths/register ./scripts/bin.ts",
-    "cli": "node ./bin/cli.js",
+    "cli": "node ./bin/cli.mjs",
     "clean:dist": "rimraf ./dist src/**/dist",
     "clean:next": "rimraf .next/",
     "clean": "rimraf node_modules package-lock.json yarn.lock pnpm-lock.yaml"
