@@ -120,7 +120,7 @@ class DocFiles {
       fs.writeFileSync(filePath, `# ${responses.title}\n\n${responses.tags}`);
 
       baseJson.push({
-        title: `【${language}】responses.title`,
+        title: `【${language}】${responses.title}`,
         path: locationPath,
         tags: responses.tags.split(","),
       });

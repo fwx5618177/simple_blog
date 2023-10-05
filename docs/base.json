@@ -294,5 +294,37 @@
     "title": "【Typescript】Monaco 源码分析与介绍",
     "path": "docs/2023/08/monaco_instro_zh.md",
     "tags": []
+  },
+  {
+    "title": "【Node】深入理解 JavaScript 错误堆栈(调用桢)捕获装饰器的错误位置",
+    "path": "docs/2023/10/Node_Error_CaptureStackTree/node_error_captureStackTree_20231005_zh.md",
+    "tags": [
+      "node",
+      "error"
+    ]
+  },
+  {
+    "title": "【jp】Error.CaptureStackTree",
+    "path": "docs/2023/10/Node_Error_CaptureStackTree/node_error_captureStackTree_20231005_jp.md",
+    "tags": [
+      "node",
+      "error"
+    ]
+  },
+  {
+    "title": "【en】Error.CaptureStackTree",
+    "path": "docs/2023/10/Node_Error_CaptureStackTree/node_error_captureStackTree_20231005_en.md",
+    "tags": [
+      "node",
+      "error"
+    ]
+  },
+  {
+    "title": "【fr】Error.CaptureStackTree",
+    "path": "docs/2023/10/Node_Error_CaptureStackTree/node_error_captureStackTree_20231005_fr.md",
+    "tags": [
+      "node",
+      "error"
+    ]
   }
 ]
