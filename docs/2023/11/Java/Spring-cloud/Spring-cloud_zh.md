@@ -13,6 +13,10 @@ description: "Spring Cloud 微服务架构进阶"
 1. [Spring Initializer](https://start.spring.io/): 可以直接生成相应版本的包
 2. [Spring IO Repo](https://repo.spring.io/ui/native/milestone/org/springframework/cloud/spring-cloud-netflix-ribbon/): 可以直接下载相应版本的包
 
+推荐架构:
+
+![Alt text](40fabf30562132e48706b5bdabe2c5d7.png)
+
 针对的版本:
 
 - Java: 17
