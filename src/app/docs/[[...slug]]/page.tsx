@@ -1,10 +1,9 @@
 "use client";
 
-import { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import styles from "./index.module.scss";
 import Paper from "@/components/Paper";
 import useParseHTML from "@/hooks/ParseHTML";
-import React from "react";
 import CodeRender from "@/components/Code/CodeRender";
 import Highlighter from "react-highlight-words";
 import { DOMNode } from "html-react-parser";
